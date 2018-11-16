@@ -3,4 +3,14 @@
     <color name="colorPrimary">#e1f2ea</color>
     <color name="colorPrimaryDark">#98d2d9</color>
     <color name="colorAccent">#ee8d8d</color>
+    <color name="babypink">#FFEEEC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#EE8D8D</color>
+    <color name="staryellow">#FFC000</color>
+    <color name="green">#C5E8D6</color>
+    <color name="orange">#FEDFAA</color>
+    <color name="yellow">#FFFAD2</color>
+    <color name="mint">#E1F2EA</color>
+    <color name="pink">#FFD5CC</color>
+    <color name="blue">#98D2D9</color>
 </resources>

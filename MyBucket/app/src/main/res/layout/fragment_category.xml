@@ -9,10 +9,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:background="#98d2d9"
         android:text="카테고리"
-        android:textSize="60sp"
+        android:fontFamily="@font/nanumsquare_extrabold"
+        android:textSize="40sp"
         android:gravity="center"
         android:textColor="#ffffff"></TextView>
 
@@ -49,10 +50,10 @@
                 android:layout_height="match_parent"
                 android:src="#fff3b7"/>
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_centerInParent="true"
-                android:background="#000000"/>
+                android:background="@drawable/goal"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -71,10 +72,10 @@
                     android:layout_height="match_parent"
                     android:src="#fedfaa"/>
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_centerInParent="true"
-                    android:background="#000000"/>
+                    android:background="@drawable/learning"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -87,10 +88,10 @@
                     android:layout_height="match_parent"
                     android:src="#dcf1e6"/>
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:layout_centerInParent="true"
-                    android:background="#000000"/>
+                    android:background="@drawable/travel"/>
             </RelativeLayout>
         </LinearLayout>
 
@@ -106,10 +107,10 @@
                 android:layout_height="match_parent"
                 android:src="#b3e5fc"/>
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_centerInParent="true"
-                android:background="#000000"/>
+                android:background="@drawable/wishlist"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -128,10 +129,10 @@
                     android:layout_height="match_parent"
                     android:src="#e1bee7"/>
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_centerInParent="true"
-                    android:background="#000000"/>
+                    android:background="@drawable/etc"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -144,10 +145,10 @@
                     android:layout_height="match_parent"
                     android:src="#ffd5cc"/>
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:layout_centerInParent="true"
-                    android:background="#000000"/>
+                    android:background="@drawable/sharing"/>
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>

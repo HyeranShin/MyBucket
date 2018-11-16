@@ -8,20 +8,23 @@
     tools:context=".SplashActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="My Bucket"
+        android:fontFamily="@font/greatday"
         android:layout_above="@+id/iv_icon_splash"
-        android:layout_centerHorizontal="true"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
         android:layout_marginBottom="50dp"
         android:textColor="#000000"
-        android:textSize="90sp"/>
+        android:textStyle="bold"
+        android:textSize="100sp"/>
 
     <ImageView
         android:id="@+id/iv_icon_splash"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="#ff0000"
+        android:background="@drawable/splash_icon"
         android:layout_centerInParent="true"/>
 
     <TextView
@@ -32,8 +35,10 @@
         android:textSize="30sp"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:textColor="#000000"
+        android:fontFamily="@font/nanumsquare_regular"
+        android:lineSpacingExtra="10dp"
         android:text="버킷 리스트는\n당신의 삶의 매 순간에 최선을 다할 수 있도록\n이끌어주는 이정표가 되어줄 것이다."/>
 
     <TextView
@@ -41,9 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textColor="#000000"
+        android:fontFamily="@font/nanumsquare_light"
         android:text="©신혜란, 홍지원"
-        android:layout_margin="8dp"/>
+        android:layout_margin="16dp"/>
 
 </RelativeLayout>

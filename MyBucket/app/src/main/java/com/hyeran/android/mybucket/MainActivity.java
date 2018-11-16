@@ -9,18 +9,18 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    MypageFragment mypageFragment;
+    MypageFragment mypageFragment;
     CategoryFragment categoryFragment;
-//    AddFragment addFragment;
+    AddFragment addFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        mypageFragment = new MypageFragment();
+        mypageFragment = new MypageFragment();
         categoryFragment = new CategoryFragment();
-//        addFragment = new AddFragment();
+        addFragment = new AddFragment();
 
         replaceFragment(categoryFragment);
 
@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.mypage_tab_main:
-//                changeFragment(mypageFragment);
+                replaceFragment(mypageFragment);
                 break;
             case R.id.list_tab_main:
                 replaceFragment(categoryFragment);
                 break;
             case R.id.add_tab_main:
-//                changeFragment(addFragment);
+                replaceFragment(addFragment);
                 break;
         }
     }
