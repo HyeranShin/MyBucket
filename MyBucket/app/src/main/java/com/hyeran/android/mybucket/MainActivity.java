@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         categoryFragment = new CategoryFragment();
         addFragment = new AddFragment();
 
-        replaceFragment(categoryFragment);
+        replaceFragment(mypageFragment);
 
         findViewById(R.id.mypage_tab_main).setOnClickListener(this);
         findViewById(R.id.list_tab_main).setOnClickListener(this);
