@@ -12,25 +12,22 @@ import io.realm.Realm;
 
 public class ListFragment extends Fragment {
 
-    View v;
     Realm realm;
-    ArrayList<BucketlistVO> bucketlist;
 
-    // CATEGORY_INTEX
+    int category_index;
     // All:0, Goal:1, Learning:2, Travel:3, Wishlist:4, Sharing:5, Etc:6
 
     RecyclerView rv_bucketlist;
     RecyclerView.LayoutManager layoutManager;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        v =  inflater.inflate(R.layout.fragment_list, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v =  inflater.inflate(R.layout.fragment_list, container, false);
+        category_index = getArguments().getInt("CATEGORY_INDEX");
+
+        rv_bucketlist = v.findViewById(R.id.rv_bucketlist);
 
         init();
-
-//        int category_index = getArguments().getInt("CATEGORY_INDEX");
-        // 해당 category_index에 맞는 데이터 꺼내기
 
         return v;
     }
@@ -41,11 +38,14 @@ public class ListFragment extends Fragment {
         realm = Realm.getDefaultInstance(); // 쓰레드의 Realm 인스턴스 얻기
 
         // RecyclerView에 Realm 데이터 가져오기
-        rv_bucketlist = v.findViewById(R.id.rv_bucketlist);
         rv_bucketlist.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext());
         rv_bucketlist.setLayoutManager(layoutManager);
-        bucketlist = new ArrayList<>(realm.where(BucketlistVO.class).findAll());
+
+        // 해당 category_index에 맞는 데이터 꺼내기
+        ArrayList<BucketlistVO> bucketlist;
+        if(category_index==0) bucketlist = new ArrayList<>(realm.where(BucketlistVO.class).findAll());
+        else bucketlist = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).findAll());
         BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist);
         rv_bucketlist.setAdapter(bucketlistAdapter);
     }

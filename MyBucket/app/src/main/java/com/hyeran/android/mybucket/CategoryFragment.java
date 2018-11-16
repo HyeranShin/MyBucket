@@ -10,17 +10,9 @@ import android.view.ViewGroup;
 
 public class CategoryFragment extends Fragment implements View.OnClickListener {
 
-    // CATEGORY_INTEX
-    // All:0, Goal:1, Learning:2, Travel:3, Wishlist:4, Sharing:5, Etc:6
-    int category_index;
-
-    ListFragment listFragment;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_category, container, false);
-
-        listFragment = new ListFragment();
 
         v.findViewById(R.id.iv_all_category).setOnClickListener(this);
         v.findViewById(R.id.iv_goal_category).setOnClickListener(this);
@@ -35,6 +27,11 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        // CATEGORY_INTEX
+        // All:0, Goal:1, Learning:2, Travel:3, Wishlist:4, Sharing:5, Etc:6
+        int category_index = 0;
+
         switch (v.getId()) {
             case R.id.iv_all_category:
                 category_index = 0;
@@ -58,8 +55,11 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 category_index = 6;
                 break;
         }
+
+        // CATEGORY_INDEX 전달
         Bundle args = new Bundle();
         args.putInt("CATEGORY_INDEX", category_index);
+        ListFragment listFragment = new ListFragment();
         listFragment.setArguments(args);
         replaceFragment(listFragment);
     }
@@ -69,6 +69,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.framge_main, fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }

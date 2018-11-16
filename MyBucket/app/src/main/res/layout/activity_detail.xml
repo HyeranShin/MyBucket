@@ -396,7 +396,7 @@
             android:layout_height="wrap_content"
             android:src ="@drawable/plusbtnimage"
             android:background="@null"
-            android:id="@+id/DetailImagePlusBtn"
+            android:id="@+id/btn_image_detail"
             android:gravity="right"/>
 
         </LinearLayout>
@@ -430,7 +430,7 @@
             android:layout_height="wrap_content"
             android:src ="@drawable/plusbtnimage"
             android:background="@null"
-            android:id="@+id/DetailVideoPlusBtn"
+            android:id="@+id/btn_video_detail"
             android:gravity="right"/>
 
         </LinearLayout>
@@ -485,30 +485,29 @@
         android:gravity="right">
 
         <ViewSwitcher
+            android:id="@+id/btn_switcher_detail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/BtnSwitcher">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="modify"
-            android:background="@drawable/bluebutton"
-            android:id="@+id/DetailModifyButton"
-            android:layout_marginRight="15dp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="save"
-            android:background="@drawable/bluebutton"
-            android:id="@+id/DetailSaveButton"/>
-
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_modify_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="modify"
+                android:background="@drawable/bluebutton"
+                android:layout_marginRight="15dp"/>
+            <Button
+                android:id="@+id/btn_save_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="save"
+                android:background="@drawable/bluebutton"/>
         </ViewSwitcher>
 
         <Button
+            android:id="@+id/btn_delete_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete"
-            android:id="@+id/DeleteButton"
             android:background="@drawable/bluebutton"/>
 
     </LinearLayout>
@@ -519,10 +518,11 @@
         android:gravity="center"
         android:layout_marginBottom="15dp">
         <Button
+            android:id="@+id/btn_change_state_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="진행중으로 변경"
             android:background="@drawable/redbutton"
-            android:id="@+id/DetailStateButton"
             />
     </LinearLayout>
 

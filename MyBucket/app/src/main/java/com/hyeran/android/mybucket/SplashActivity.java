@@ -2,9 +2,11 @@ package com.hyeran.android.mybucket;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
@@ -12,7 +14,11 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash);
+
+        ImageView icon = findViewById(R.id.iv_icon_splash);
+        icon.setColorFilter(Color.parseColor("#AA1212"));
 
         // 명언 배열(20개)
         String[] famous_saying = {
@@ -48,6 +54,7 @@ public class SplashActivity extends AppCompatActivity {
         editor.putInt("index", index);
         editor.commit();
 
+        // 3초 뒤 MainActivity로 이동
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

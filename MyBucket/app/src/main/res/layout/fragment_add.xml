@@ -57,9 +57,9 @@
             android:paddingBottom="10dp"/>
 
         <EditText
+            android:id="@+id/et_content_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ContentEditText"
             android:inputType="textMultiLine"
             android:lines="5"
             android:minLines="2"
@@ -83,13 +83,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="같이 하는 사람"
+            android:text="함께 하는 사람"
             android:paddingRight="10dp"/>
 
         <EditText
+            android:id="@+id/et_companion_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/PersonEditText"
             android:background="@drawable/border"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -113,9 +113,9 @@
             android:paddingRight="10dp"/>
 
         <EditText
+            android:id="@+id/et_place_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/PlaceEditText"
             android:background="@drawable/border"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -144,11 +144,11 @@
             android:orientation="horizontal">
 
             <DatePicker
+                android:id="@+id/datepicker_start_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:id="@+id/StartDatePicker"/>
+                android:datePickerMode="spinner"/>
 
             <TextView
                 android:layout_width="wrap_content"
