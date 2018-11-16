@@ -31,9 +31,9 @@
             android:paddingRight="10dp" />
 
         <EditText
+            android:id="@+id/et_title_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TitleEditText"
             android:background="@drawable/border"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -160,11 +160,11 @@
                 android:paddingBottom="100dp"/>
 
             <DatePicker
+                android:id="@+id/datepicker_end_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:id="@+id/EndDatePicker"/>
+                android:datePickerMode="spinner"/>
 
         </LinearLayout>
 
@@ -217,9 +217,9 @@
             android:text="#"/>
 
         <EditText
+            android:id="@+id/et_hashtag1_add"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/HashTag1"/>
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -227,9 +227,9 @@
             android:text="#"/>
 
         <EditText
+            android:id="@+id/et_hashtag2_add"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/HashTag2"/>
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -237,9 +237,9 @@
             android:text="#"/>
 
         <EditText
+            android:id="@+id/et_hashtag3_add"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/HashTag3"/>
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -305,10 +305,10 @@
         android:paddingTop="15dp">
 
         <Button
+            android:id="@+id/btn_add_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="추가하기"
-            android:id="@+id/AddButton"
             android:background="@drawable/redbutton"/>
 
     </LinearLayout>

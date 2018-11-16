@@ -1,8 +1,6 @@
 package com.hyeran.android.mybucket;
 
 import android.os.Bundle;
-import android.renderscript.Script;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,8 +11,6 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-
-import java.util.Calendar;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -35,12 +31,12 @@ public class DetailActivity extends AppCompatActivity {
     int count5 = 0;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         setTitle("자세히 보기");
 
-        Button modifyBtn = (Button)findViewById(R.id.DetailModifyButton);
+        Button modifyBtn = findViewById(R.id.DetailModifyButton);
 
         final ViewSwitcher switcher = (ViewSwitcher)findViewById(R.id.TItleSwitcher);
         final EditText titleEditText = (EditText)findViewById(R.id.DetailTItleEdit);
@@ -94,10 +90,10 @@ public class DetailActivity extends AppCompatActivity {
 
         String[] category = {"Goal", "Learning", "Travel", "WishList", "Sharing", "Etc"};
 
-        final Spinner categorySpinner = (Spinner) findViewById(R.id.DetailCategorySpinner);
+        final Spinner categorySpinner = findViewById(R.id.DetailCategorySpinner);
 
         ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, category);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, category);
         categorySpinner.setAdapter(adapter);
 
 
@@ -127,7 +123,7 @@ public class DetailActivity extends AppCompatActivity {
 
                 if(count % 2 == 0) {switcher.showNext(); switcher2.showNext(); switcher3.showNext(); switcher4.showNext(); switcher5.showNext(); switcher6.showNext(); switcher7.showNext(); switcher8.showNext(); count++;}
 
-                ViewSwitcher btnSwitcher = (ViewSwitcher)findViewById(R.id.BtnSwitcher);
+                ViewSwitcher btnSwitcher = findViewById(R.id.BtnSwitcher);
                 btnSwitcher.showNext();
 
                 detailstar1.setEnabled(true);
@@ -188,14 +184,14 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                DatePicker datePickerStart = (DatePicker) findViewById(R.id.DetailDatePickerStart);
+                DatePicker datePickerStart = findViewById(R.id.DetailDatePickerStart);
 
                 startday = datePickerStart.getDayOfMonth();
                 startmonth = datePickerStart.getMonth();
                 startyear = datePickerStart.getYear();
                 datePickerStart.updateDate(startyear, startmonth, startday);
 
-                DatePicker datePickerEnd = (DatePicker) findViewById(R.id.DetailDatePickerEnd);
+                DatePicker datePickerEnd = findViewById(R.id.DetailDatePickerEnd);
 
                 endday = datePickerEnd.getDayOfMonth();
                 endmonth = datePickerEnd.getMonth();
@@ -220,7 +216,7 @@ public class DetailActivity extends AppCompatActivity {
 
                 if(count % 2 == 1 ) {switcher.showNext(); switcher2.showNext();switcher3.showNext(); switcher4.showNext(); switcher5.showNext(); switcher6.showNext(); switcher7.showNext(); switcher8.showNext();count++;}
 
-                ViewSwitcher btnSwitcher = (ViewSwitcher)findViewById(R.id.BtnSwitcher);
+                ViewSwitcher btnSwitcher = findViewById(R.id.BtnSwitcher);
                 btnSwitcher.showNext();
 
                 plusImageBtn.setVisibility(View.INVISIBLE);

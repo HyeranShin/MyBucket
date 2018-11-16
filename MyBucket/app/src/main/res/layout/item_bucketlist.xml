@@ -31,13 +31,23 @@
                 android:textColor="#000000"
                 android:layout_marginRight="8dp"
                 android:textSize="40sp"/>
-            <ImageView
-                android:id="@+id/iv_category_item_bucketlist"
+            <RelativeLayout
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="8dp"
-                android:layout_gravity="center_vertical"
-                android:background="#000000"/>
+                android:layout_gravity="center_vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/background_category_item_bucketlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="#fedfaa"/>
+                <ImageView
+                    android:id="@+id/iv_category_item_bucketlist"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/etc"/>
+            </RelativeLayout>
             <TextView
                 android:id="@+id/tv_title_item_bucketlist"
                 android:layout_width="wrap_content"
@@ -77,30 +87,35 @@
                     android:textColor="#000000"
                     android:textSize="40sp"/>
                 <TextView
+                    android:id="@+id/tv_star1_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
-                    android:textColor="#FFBB00"
+                    android:textColor="#D5D5D5"
                     android:textSize="40sp"/>
                 <TextView
+                    android:id="@+id/tv_star2_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
-                    android:textColor="#FFBB00"
+                    android:textColor="#D5D5D5"
                     android:textSize="40sp"/>
                 <TextView
+                    android:id="@+id/tv_star3_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
-                    android:textColor="#FFBB00"
+                    android:textColor="#D5D5D5"
                     android:textSize="40sp"/>
                 <TextView
+                    android:id="@+id/tv_star4_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
-                    android:textColor="#FFBB00"
+                    android:textColor="#D5D5D5"
                     android:textSize="40sp"/>
                 <TextView
+                    android:id="@+id/tv_star5_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
@@ -149,31 +164,11 @@
                     android:textColor="#000000"
                     android:textSize="40sp"/>
                 <TextView
-                    android:id="@+id/tv_date_item_bucketlist"
+                    android:id="@+id/tv_day_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="7"
                     android:fontFamily="@font/nanumsquare_light"
-                    android:textColor="#000000"
-                    android:textSize="40sp"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanumsquare_regular"
-                    android:text="함께 하는 사람: "
-                    android:textColor="#000000"
-                    android:textSize="40sp"/>
-                <TextView
-                    android:id="@+id/tv_companion_item_bucketlist"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanumsquare_light"
-                    android:text="홍지원"
                     android:textColor="#000000"
                     android:textSize="40sp"/>
             </LinearLayout>
