@@ -64,17 +64,27 @@ public class MypageFragment extends Fragment {
         final SharedPreferences.Editor editor = pref.edit();
 
         //사용자가 마지막으로 지정한 이름, 다짐, 사진이 앱이 실행되었을때 표시되도록 한다.
+
         String showMyName = pref.getString("Myname", null);
+        if(showMyName == null) {
+            nameTextView.setText("이름 입력");
+        } else {
+            nameTextView.setText(showMyName);
+        }
         String showMyMotto = pref.getString("MyMotto", null);
+        if(showMyMotto == null) {
+            mottoTextView.setText("다짐 입력");
+        } else {
+            mottoTextView.setText(showMyMotto);
+        }
         String showMyImageString = pref.getString("MyImage", null);
-        Bitmap showMyImage = decodeBase64(showMyImageString);
-
         CircleImageView imageView = (CircleImageView) view.findViewById(R.id.MyPageImage);
-
-        imageView.setImageBitmap(showMyImage);
-        nameTextView.setText(showMyName);
-        mottoTextView.setText(showMyMotto);
-
+        if(showMyImageString == null) {
+            imageView.setImageResource(R.drawable.charlie);
+        } else {
+            Bitmap showMyImage = decodeBase64(showMyImageString);
+            imageView.setImageBitmap(showMyImage);
+        }
 
         modifyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
