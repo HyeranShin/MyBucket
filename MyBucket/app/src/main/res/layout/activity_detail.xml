@@ -35,7 +35,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -45,13 +46,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailTitle"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:textSize="30sp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailTItleEdit"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textSize="30sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -70,7 +73,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -80,7 +84,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailContent"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp"
+                android:textSize="30sp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,7 +94,8 @@
                 android:inputType="textMultiLine"
                 android:lines="5"
                 android:minLines="2"
-                android:maxLines="8"/>
+                android:maxLines="8"
+                android:textSize="30sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -108,7 +114,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -118,12 +125,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPerson"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textSize="30sp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPersonEdit"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textSize="30sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -142,7 +151,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -152,22 +162,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPlace"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textSize="30sp"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPlaceEdit"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textSize="30sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingBottom="15dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -176,31 +194,52 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
-
-            <DatePicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:id="@+id/DetailDatePickerStart"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DetailDate"
+            android:layout_marginLeft="10dp"
+            android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="100dp"
-            android:paddingBottom="100dp"/>
-
+            android:orientation="horizontal"
+            android:id="@+id/DateModifyLayout">
 
             <DatePicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
-                android:id="@+id/DetailDatePickerEnd"/>
+                android:id="@+id/DetailDatePickerStart"
+                android:theme="@style/DatepickerStyle"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="100dp"
+                android:paddingBottom="100dp"
+                android:textSize="30sp"/>
+
+            <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:id="@+id/DetailDatePickerEnd"
+                android:theme="@style/DatepickerStyle"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -219,17 +258,21 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:paddingRight="10dp"
             android:id="@+id/DetailCategoryImageView"
             android:paddingLeft="10dp"/>
 
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/DetailCategorySpinner"/>
+            android:id="@+id/DetailCategorySpinner"
+            android:textSize="30sp"/>
 
     </LinearLayout>
 
@@ -248,13 +291,15 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="wrap_content"
@@ -264,17 +309,20 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/DetailHashtag1"/>
+                android:id="@+id/DetailHashtag1"
+                android:textSize="30sp"/>
 
             <EditText
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/HastTag1EditText"/>
+                android:id="@+id/HastTag1EditText"
+                android:textSize="30sp"/>
         </ViewSwitcher>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#"/>
+            android:text="#"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="wrap_content"
@@ -283,17 +331,20 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/DetailHashtag2"/>
+                android:id="@+id/DetailHashtag2"
+                android:textSize="30sp"/>
 
             <EditText
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/HastTag2EditText"/>
+                android:id="@+id/HastTag2EditText"
+                android:textSize="30sp"/>
         </ViewSwitcher>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#"/>
+            android:text="#"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="wrap_content"
@@ -302,12 +353,14 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/DetailHashtag3"/>
+                android:id="@+id/DetailHashtag3"
+                android:textSize="30sp"/>
 
             <EditText
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/HashTag3EditText"/>
+                android:id="@+id/HashTag3EditText"
+                android:textSize="30sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -327,7 +380,8 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginRight="15dp"/>
+            android:layout_marginRight="15dp"
+            android:textSize="30sp"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -385,12 +439,14 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right">
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -418,7 +474,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -451,7 +508,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp"
+            android:textSize="30sp"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -461,7 +519,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailOpinion"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp"
+                android:textSize="30sp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -471,7 +530,8 @@
                 android:lines="5"
                 android:minLines="2"
                 android:maxLines="8"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp"
+                android:textSize="30sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -494,13 +554,17 @@
                 android:layout_height="wrap_content"
                 android:text="modify"
                 android:background="@drawable/bluebutton"
-                android:layout_marginRight="15dp"/>
+                android:layout_marginRight="15dp"
+                android:textSize="30sp"
+                android:padding="5dp"/>
             <Button
                 android:id="@+id/btn_save_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="save"
-                android:background="@drawable/bluebutton"/>
+                android:background="@drawable/bluebutton"
+                android:textSize="30sp"
+                android:padding="5dp"/>
         </ViewSwitcher>
 
         <Button
@@ -508,7 +572,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete"
-            android:background="@drawable/bluebutton"/>
+            android:background="@drawable/bluebutton"
+            android:textSize="30sp"
+            android:padding="5dp"/>
 
     </LinearLayout>
 
@@ -523,7 +589,8 @@
             android:layout_height="wrap_content"
             android:text="진행중으로 변경"
             android:background="@drawable/redbutton"
-            />
+            android:textSize="30sp"
+            android:padding="5dp" />
     </LinearLayout>
 
 </LinearLayout>

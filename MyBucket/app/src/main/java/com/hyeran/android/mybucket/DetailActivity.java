@@ -1,17 +1,25 @@
 package com.hyeran.android.mybucket;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -47,6 +55,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     int count3 = 0;
     int count4 = 0;
     int count5 = 0;
+
+    LinearLayout modifyDateLayout;
+    TextView detailDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,16 +113,77 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         ibStar2 = findViewById(R.id.DetailStar2);
         ibStar3 = findViewById(R.id.DetailStar3);
         ibStar4 = findViewById(R.id.DetailStar4);
-        ibStar5 = findViewById(R.id.DetailStar4);
+        ibStar5 = findViewById(R.id.DetailStar5);
         ibStar1.setEnabled(false);
         ibStar2.setEnabled(false);
         ibStar3.setEnabled(false);
         ibStar4.setEnabled(false);
         ibStar5.setEnabled(false);
 
+        modifyDateLayout = (LinearLayout) findViewById(R.id.DateModifyLayout);
+        modifyDateLayout.setVisibility(View.GONE);
+
+        detailDate = (TextView) findViewById(R.id.DetailDate);
+
         init();
 
         setSpinner();
+
+        categorySpinner = findViewById(R.id.DetailCategorySpinner);
+        categorySpinner.setEnabled(false);
+
+        final CircleImageView imageView = (CircleImageView) findViewById(R.id.DetailCategoryImageView);
+
+        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(categorySpinner.getSelectedItemPosition() == 0) {
+                    imageView.setImageResource(R.drawable.goal);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.yellow));
+                    Drawable image = getResources().getDrawable(R.drawable.goal);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 1) {
+                    imageView.setImageResource(R.drawable.learning);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.orange));
+                    Drawable image = getResources().getDrawable(R.drawable.learning);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 2) {
+                    imageView.setImageResource(R.drawable.travel);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.green));
+                    Drawable image = getResources().getDrawable(R.drawable.travel);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 3) {
+                    imageView.setImageResource(R.drawable.wishlist);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.blue));
+                    Drawable image = getResources().getDrawable(R.drawable.wishlist);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 4) {
+                    imageView.setImageResource(R.drawable.sharing);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.pink));
+                    Drawable image = getResources().getDrawable(R.drawable.sharing);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else {
+                    imageView.setImageResource(R.drawable.etc);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.purple));
+                    Drawable image = getResources().getDrawable(R.drawable.etc);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
     }
 
     @Override
@@ -151,57 +223,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(intent);
                 break;
 
-            case R.id.btn_save_detail:
-                DatePicker datePickerStart = findViewById(R.id.DetailDatePickerStart);
-                startday = datePickerStart.getDayOfMonth();
-                startmonth = datePickerStart.getMonth();
-                startyear = datePickerStart.getYear();
-                datePickerStart.updateDate(startyear, startmonth, startday);
-
-                DatePicker datePickerEnd = findViewById(R.id.DetailDatePickerEnd);
-
-                endday = datePickerEnd.getDayOfMonth();
-                endmonth = datePickerEnd.getMonth();
-                endyear = datePickerEnd.getYear();
-                datePickerEnd.updateDate(endyear, endmonth, endday);
-
-                tvTitle.setText(etTitle.getText().toString());
-                tvContent.setText(etContent.getText().toString());
-                tvCompanion.setText(etCompanion.getText().toString());
-                tvPlace.setText(etPlace.getText().toString());
-                tvHashtag1.setText(etHashtag1.getText().toString());
-                tvHashtag2.setText(etHashtag2.getText().toString());
-                tvHashtag3.setText(etHashtag3.getText().toString());
-
-                tvOpinion.setText(etOpinion.getText().toString());
-
-                if(count % 2 == 1 ) {
-                    vsTitle.showNext(); vsContent.showNext();vsCompanion.showNext(); vsPlace.showNext();
-                    vsHashtag1.showNext(); vsHashtag2.showNext(); vsHashtag3.showNext(); vsOpinion.showNext();count++;
-                }
-
-                btnSwitcher.showNext();
-
-                btnImage.setVisibility(View.INVISIBLE);
-                btnVideo.setVisibility(View.INVISIBLE);
-
-                String text = categorySpinner.getSelectedItem().toString();
-                int spinnerposition = 0;
-                if(text == "Goal") { spinnerposition = 0;}
-                else if(text == "Learning") {spinnerposition = 1;}
-                else if(text == "Travel") {spinnerposition = 2;}
-                else if(text == "WishList") {spinnerposition = 3;}
-                else if(text == "Sharing") {spinnerposition = 4;}
-                else if(text == "Etc") {spinnerposition = 5;}
-                categorySpinner.setSelection(spinnerposition);
-
-                ibStar1.setEnabled(false);
-                ibStar2.setEnabled(false);
-                ibStar3.setEnabled(false);
-                ibStar4.setEnabled(false);
-                ibStar5.setEnabled(false);
-
             case R.id.btn_modify_detail:
+
+                modifyDateLayout.setVisibility(View.VISIBLE);
+                categorySpinner.setEnabled(true);
+
                 etTitle.setText(tvTitle.getText().toString());
                 etContent.setText(tvContent.getText().toString());
                 etCompanion.setText(tvCompanion.getText().toString());
@@ -218,9 +244,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     vsTitle.showNext(); vsContent.showNext(); vsCompanion.showNext(); vsPlace.showNext();
                     vsHashtag1.showNext(); vsHashtag2.showNext(); vsHashtag3.showNext(); vsOpinion.showNext(); count++;
                 }
-
-
-                btnSwitcher.showNext();
 
                 ibStar1.setEnabled(true);
                 ibStar2.setEnabled(true);
@@ -272,6 +295,69 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                         else {ibStar5.setColorFilter(null); count5++;}
                     }
                 });
+
+                btnSwitcher.showNext();
+
+                break;
+
+            case R.id.btn_save_detail:
+
+                DatePicker datePickerStart = findViewById(R.id.DetailDatePickerStart);
+                startday = datePickerStart.getDayOfMonth();
+                startmonth = datePickerStart.getMonth() + 1;
+                startyear = datePickerStart.getYear();
+                //datePickerStart.updateDate(startyear, startmonth, startday);
+
+                DatePicker datePickerEnd = findViewById(R.id.DetailDatePickerEnd);
+
+                endday = datePickerEnd.getDayOfMonth();
+                endmonth = datePickerEnd.getMonth() + 1;
+                endyear = datePickerEnd.getYear();
+                //datePickerEnd.updateDate(endyear, endmonth, endday);
+
+                detailDate.setText(startyear + "년 " + startmonth + "월 " + startday + "일 " + "- " + endyear + "년 " + endmonth + "월 " + endday + "일 ");
+
+                modifyDateLayout.setVisibility(View.GONE);
+
+                tvTitle.setText(etTitle.getText().toString());
+                tvContent.setText(etContent.getText().toString());
+                tvCompanion.setText(etCompanion.getText().toString());
+                tvPlace.setText(etPlace.getText().toString());
+                tvHashtag1.setText(etHashtag1.getText().toString());
+                tvHashtag2.setText(etHashtag2.getText().toString());
+                tvHashtag3.setText(etHashtag3.getText().toString());
+
+                tvOpinion.setText(etOpinion.getText().toString());
+
+                if(count % 2 == 1 ) {
+                    vsTitle.showNext(); vsContent.showNext();vsCompanion.showNext(); vsPlace.showNext();
+                    vsHashtag1.showNext(); vsHashtag2.showNext(); vsHashtag3.showNext(); vsOpinion.showNext();count++;
+                }
+
+                btnImage.setVisibility(View.INVISIBLE);
+                btnVideo.setVisibility(View.INVISIBLE);
+
+                String text = categorySpinner.getSelectedItem().toString();
+                int spinnerposition = 0;
+                if(text == "Goal") { spinnerposition = 0;}
+                else if(text == "Learning") {spinnerposition = 1;}
+                else if(text == "Travel") {spinnerposition = 2;}
+                else if(text == "WishList") {spinnerposition = 3;}
+                else if(text == "Sharing") {spinnerposition = 4;}
+                else if(text == "Etc") {spinnerposition = 5;}
+                categorySpinner.setSelection(spinnerposition);
+
+                categorySpinner.setEnabled(false);
+
+                ibStar1.setEnabled(false);
+                ibStar2.setEnabled(false);
+                ibStar3.setEnabled(false);
+                ibStar4.setEnabled(false);
+                ibStar5.setEnabled(false);
+
+                btnSwitcher.showNext();
+
+                break;
         }
     }
 
@@ -280,7 +366,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         categorySpinner = findViewById(R.id.DetailCategorySpinner);
         ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, category);
+        adapter = new ArrayAdapter<>(this, R.layout.spinner_item, category);
         categorySpinner.setAdapter(adapter);
     }
 
