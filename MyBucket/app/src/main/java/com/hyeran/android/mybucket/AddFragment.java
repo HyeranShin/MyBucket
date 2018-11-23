@@ -3,16 +3,22 @@ package com.hyeran.android.mybucket;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import io.realm.DynamicRealm;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -57,6 +63,63 @@ public class AddFragment extends Fragment{
         changeStarState();
         setSpinner();
 
+        categorySpinner = v.findViewById(R.id.CategorySpinner);
+
+        final CircleImageView imageView = (CircleImageView) v.findViewById(R.id.CategoryImageView);
+
+        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(categorySpinner.getSelectedItemPosition() == 0) {
+                    imageView.setImageResource(R.drawable.goal);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.yellow));
+                    Drawable image = getResources().getDrawable(R.drawable.goal);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 1) {
+                    imageView.setImageResource(R.drawable.learning);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.orange));
+                    Drawable image = getResources().getDrawable(R.drawable.learning);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 2) {
+                    imageView.setImageResource(R.drawable.travel);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.green));
+                    Drawable image = getResources().getDrawable(R.drawable.travel);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 3) {
+                    imageView.setImageResource(R.drawable.wishlist);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.blue));
+                    Drawable image = getResources().getDrawable(R.drawable.wishlist);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else if(categorySpinner.getSelectedItemPosition() == 4) {
+                    imageView.setImageResource(R.drawable.sharing);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.pink));
+                    Drawable image = getResources().getDrawable(R.drawable.sharing);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+                else {
+                    imageView.setImageResource(R.drawable.etc);
+                    Drawable color = new ColorDrawable(getResources().getColor(R.color.purple));
+                    Drawable image = getResources().getDrawable(R.drawable.etc);
+                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
+                    imageView.setImageDrawable(layerDrawable);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         init(); // Realm 초기화
 
         v.findViewById(R.id.btn_add_add).setOnClickListener(new View.OnClickListener() {
@@ -71,6 +134,7 @@ public class AddFragment extends Fragment{
                 replaceFragment(listFragment);
             }
         });
+
 
         return v;
     }
@@ -124,7 +188,7 @@ public class AddFragment extends Fragment{
         categorySpinner = v.findViewById(R.id.CategorySpinner);
 
         ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, category);
+        adapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, category);
         categorySpinner.setAdapter(adapter);
     }
 
