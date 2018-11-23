@@ -63,6 +63,9 @@ public class MypageFragment extends Fragment {
         final SharedPreferences pref = getActivity().getApplicationContext().getSharedPreferences("MyPref", Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = pref.edit();
 
+        final ImageButton buttonLoadImage = (ImageButton) view.findViewById(R.id.MyPageImageChange);
+        buttonLoadImage.setVisibility(View.INVISIBLE);
+
         //사용자가 마지막으로 지정한 이름, 다짐, 사진이 앱이 실행되었을때 표시되도록 한다.
 
         String showMyName = pref.getString("Myname", null);
@@ -78,7 +81,7 @@ public class MypageFragment extends Fragment {
             mottoTextView.setText(showMyMotto);
         }
         String showMyImageString = pref.getString("MyImage", null);
-        CircleImageView imageView = (CircleImageView) view.findViewById(R.id.MyPageImage);
+        final CircleImageView imageView = (CircleImageView) view.findViewById(R.id.MyPageImage);
         if(showMyImageString == null) {
             imageView.setImageResource(R.drawable.charlie);
         } else {
@@ -94,6 +97,7 @@ public class MypageFragment extends Fragment {
                 nameEditText.setText(nameTextView.getText().toString());
                 mottoEditText.setText(mottoTextView.getText().toString());
                 if(count % 2 == 0) {switcher.showNext(); switcher2.showNext(); count++;}
+                buttonLoadImage.setVisibility(View.VISIBLE);
                 switcher3.showNext(); //수정 버튼이 저장 버튼으로 바뀐다.
             }
         });
@@ -106,6 +110,7 @@ public class MypageFragment extends Fragment {
                 nameTextView.setText(nameEditText.getText().toString());
                 mottoTextView.setText(mottoEditText.getText().toString());
                 if(count % 2 == 1) {switcher.showNext(); switcher2.showNext(); count++;}
+                buttonLoadImage.setVisibility(View.INVISIBLE);
                 switcher3.showNext(); //저장 버튼이 수정 버튼으로 바뀐다.
 
                 //이름과 다짐을 SharedPreferences에 저장.
@@ -121,7 +126,7 @@ public class MypageFragment extends Fragment {
         });
 
         //프로필 사진 수정
-        ImageButton buttonLoadImage = (ImageButton) view.findViewById(R.id.MyPageImageChange);
+
         buttonLoadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

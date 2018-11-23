@@ -167,7 +167,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner"/>
+                android:datePickerMode="spinner"
+                android:theme="@style/DatepickerStyle"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -183,7 +184,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner"/>
+                android:datePickerMode="spinner"
+                android:theme="@style/DatepickerStyle"/>
 
         </LinearLayout>
 
@@ -205,11 +207,11 @@
             android:textSize="30sp"/>
 
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/CategoryImageView"
-            android:background="@color/white"/>
+            android:paddingRight="10dp" />
 
         <Spinner
             android:layout_width="match_parent"
