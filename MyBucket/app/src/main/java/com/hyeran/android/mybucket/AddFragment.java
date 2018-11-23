@@ -12,8 +12,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import io.realm.DynamicRealm;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmMigration;
+import io.realm.RealmObject;
+import io.realm.RealmObjectSchema;
 import io.realm.RealmResults;
+import io.realm.RealmSchema;
 
 public class AddFragment extends Fragment{
 

@@ -7,7 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import io.realm.DynamicRealm;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmMigration;
+import io.realm.RealmObjectSchema;
+import io.realm.RealmSchema;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Realm realm;
 
     MypageFragment mypageFragment;
     CategoryFragment categoryFragment;
@@ -28,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.mypage_tab_main).setOnClickListener(this);
         findViewById(R.id.list_tab_main).setOnClickListener(this);
         findViewById(R.id.add_tab_main).setOnClickListener(this);
+
+        init();
     }
 
     @Override
@@ -52,5 +63,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.framge_main, fragment);
         fragmentTransaction.commit();
+    }
+
+    // Realm 초기화
+    private void init() {
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder().schemaVersion(2).
+                migration(new RealmMigration() {
+                    @Override
+                    public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
+                        RealmSchema schema = realm.getSchema();
+
+                        if (oldVersion == 1) {
+                            RealmObjectSchema realmObjectSchema = schema.get("BucketlistVO");
+                            realmObjectSchema.addField("opinion", String.class, null);
+                        }
+                    }
+                }).build();
+        Realm.setDefaultConfiguration(config);
+        realm = Realm.getDefaultInstance(); // 쓰레드의 Realm 인스턴스 얻기
+
     }
 }

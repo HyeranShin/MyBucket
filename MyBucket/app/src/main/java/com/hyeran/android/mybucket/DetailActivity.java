@@ -292,9 +292,21 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         // 데이터 세팅
         bucketlistVO = realm.where(BucketlistVO.class).equalTo("title", TITLE).findAll();
         tvTitle.setText(bucketlistVO.get(0).title+"");
+        tvContent.setText(bucketlistVO.get(0).content+"");
+        tvCompanion.setText(bucketlistVO.get(0).companion+"");
+        tvPlace.setText(bucketlistVO.get(0).place+"");
         tvHashtag1.setText(bucketlistVO.get(0).hashtag1);
         tvHashtag2.setText(bucketlistVO.get(0).hashtag2);
         tvHashtag3.setText(bucketlistVO.get(0).hashtag3);
+        // 중요도(별)
+        if(bucketlistVO.get(0).star_count > 0) ibStar1.setColorFilter(getResources().getColor(R.color.staryellow));
+        if(bucketlistVO.get(0).star_count > 1 ) ibStar2.setColorFilter(getResources().getColor(R.color.staryellow));
+        if(bucketlistVO.get(0).star_count > 2 ) ibStar3.setColorFilter(getResources().getColor(R.color.staryellow));
+        if(bucketlistVO.get(0).star_count > 3 ) ibStar4.setColorFilter(getResources().getColor(R.color.staryellow));
+        if(bucketlistVO.get(0).star_count > 4 ) ibStar5.setColorFilter(getResources().getColor(R.color.staryellow));
+
+        tvOpinion.setText(bucketlistVO.get(0).opinion);
+
         switch (bucketlistVO.get(0).state) {
             // 초기:0, 진행중:1, 달성완료:2
             case 0:

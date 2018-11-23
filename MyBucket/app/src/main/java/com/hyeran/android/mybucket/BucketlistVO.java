@@ -15,6 +15,7 @@ public class BucketlistVO extends RealmObject{
     // All:0, Goal:1, Learning:2, Travel:3, Wishlist:4, Sharing:5, Etc:6
     public String hashtag1, hashtag2, hashtag3;
     public int star_count;  // 중요도
+    public String opinion;
     public int state;   // 도장
     // 초기:0, 진행중:1, 달성완료:2
 }
