@@ -125,9 +125,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         detailDate = (TextView) findViewById(R.id.DetailDate);
 
-        init();
-
         setSpinner();
+
+        init();
 
         categorySpinner = findViewById(R.id.DetailCategorySpinner);
         categorySpinner.setEnabled(false);
@@ -380,7 +380,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         tvTitle.setText(bucketlistVO.get(0).title+"");
         tvContent.setText(bucketlistVO.get(0).content+"");
         tvCompanion.setText(bucketlistVO.get(0).companion+"");
+        // 장소
         tvPlace.setText(bucketlistVO.get(0).place+"");
+        // 기한
+        detailDate.setText(bucketlistVO.get(0).start_year+"."+bucketlistVO.get(0).start_month+"."+bucketlistVO.get(0).start_day+" - "+
+                bucketlistVO.get(0).end_year+"."+bucketlistVO.get(0).end_month+"."+bucketlistVO.get(0).end_day);
+        // 카테고리 선택
+        categorySpinner.setSelection(bucketlistVO.get(0).category_index-1);
+        // 해시태그
         tvHashtag1.setText(bucketlistVO.get(0).hashtag1);
         tvHashtag2.setText(bucketlistVO.get(0).hashtag2);
         tvHashtag3.setText(bucketlistVO.get(0).hashtag3);
@@ -390,7 +397,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         if(bucketlistVO.get(0).star_count > 2 ) ibStar3.setColorFilter(getResources().getColor(R.color.staryellow));
         if(bucketlistVO.get(0).star_count > 3 ) ibStar4.setColorFilter(getResources().getColor(R.color.staryellow));
         if(bucketlistVO.get(0).star_count > 4 ) ibStar5.setColorFilter(getResources().getColor(R.color.staryellow));
-
+        // 소감
         tvOpinion.setText(bucketlistVO.get(0).opinion);
 
         switch (bucketlistVO.get(0).state) {
