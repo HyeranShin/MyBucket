@@ -4,7 +4,7 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class BucketlistVO extends RealmObject{
-    @PrimaryKey
+//    @PrimaryKey
     public String title;
     public String content;
     public String companion;

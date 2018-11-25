@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Realm 초기화
     private void init() {
         Realm.init(this);
-        RealmConfiguration config = new RealmConfiguration.Builder().schemaVersion(2).
+        // http://black-jin0427.tistory.com/98
+        RealmConfiguration config = new RealmConfiguration.Builder().schemaVersion(3).
                 migration(new RealmMigration() {
                     @Override
                     public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
@@ -77,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (oldVersion == 1) {
                             RealmObjectSchema realmObjectSchema = schema.get("BucketlistVO");
                             realmObjectSchema.addField("opinion", String.class, null);
+                        }
+                        if (oldVersion == 2) {
+                            RealmObjectSchema realmObjectSchema = schema.get("BucketlistVO");
+                            realmObjectSchema.addField("title", String.class, null);
                         }
                     }
 
