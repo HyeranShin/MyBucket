@@ -79,6 +79,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             realmObjectSchema.addField("opinion", String.class, null);
                         }
                     }
+
+                    @Override
+                    public int hashCode() {
+                        return 37;
+                    }
+
+                    @Override
+                    public boolean equals(Object obj) {
+                        return (obj instanceof RealmMigration);
+                    }
                 }).build();
         Realm.setDefaultConfiguration(config);
         realm = Realm.getDefaultInstance(); // 쓰레드의 Realm 인스턴스 얻기
