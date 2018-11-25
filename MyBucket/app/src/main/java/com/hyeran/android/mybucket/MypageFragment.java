@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -31,6 +32,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -40,11 +43,18 @@ public class MypageFragment extends Fragment {
 
     private static int RESULT_LOAD_IMAGE = 1;
 
+    Realm realm;
+    RealmResults<BucketlistVO> bucketlistVO;
+    RealmResults<BucketlistVO> bucketlistArchievedVO;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_mypage, container, false);
+
+        init();
+        setAchievementStatus();
 
         ImageButton modifyBtn = (ImageButton) view.findViewById(R.id.MypageModifyBtn);
         ImageButton saveBtn = (ImageButton) view.findViewById(R.id.MyPageSaveBtn);
@@ -140,6 +150,18 @@ public class MypageFragment extends Fragment {
         return view;
     }
 
+    private void setAchievementStatus() {
+        ImageView stamp = view.findViewById(R.id.iv_medal);
+        stamp.setColorFilter(Color.parseColor("#FFCD12"));
+        TextView tvTotal = view.findViewById(R.id.total_bucket_mypage);
+        tvTotal.setText(bucketlistVO.size()+"");
+
+        TextView tvArchieved = view.findViewById(R.id.archieved_bucket_mypage);
+        bucketlistArchievedVO = realm.where(BucketlistVO.class).equalTo("state", 2).findAll();
+        tvArchieved.setText(bucketlistArchievedVO.size()+"");
+
+    }
+
     //앨범에서 프로필 사진 선택해서 바꾸기.
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -187,5 +209,13 @@ public class MypageFragment extends Fragment {
     public static Bitmap decodeBase64(String input) {
         byte[] decodedByte = Base64.decode(input, 0);
         return BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
+    }
+
+    // Realm 초기화
+    private void init() {
+        Realm.init(getContext());
+        realm = Realm.getDefaultInstance(); // 쓰레드의 Realm 인스턴스 얻기
+        // 데이터 세팅
+        bucketlistVO = realm.where(BucketlistVO.class).findAll();
     }
 }
