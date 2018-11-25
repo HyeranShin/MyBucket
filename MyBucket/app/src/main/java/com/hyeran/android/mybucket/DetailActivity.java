@@ -55,6 +55,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     int count3 = 0;
     int count4 = 0;
     int count5 = 0;
+    int start_count = 0;
 
     LinearLayout modifyDateLayout;
     TextView detailDate;
@@ -120,10 +121,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         ibStar4.setEnabled(false);
         ibStar5.setEnabled(false);
 
-        modifyDateLayout = (LinearLayout) findViewById(R.id.DateModifyLayout);
+        modifyDateLayout = findViewById(R.id.DateModifyLayout);
         modifyDateLayout.setVisibility(View.GONE);
 
-        detailDate = (TextView) findViewById(R.id.DetailDate);
+        detailDate = findViewById(R.id.DetailDate);
 
         setSpinner();
 
@@ -132,7 +133,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         categorySpinner = findViewById(R.id.DetailCategorySpinner);
         categorySpinner.setEnabled(false);
 
-        final CircleImageView imageView = (CircleImageView) findViewById(R.id.DetailCategoryImageView);
+        final CircleImageView imageView = findViewById(R.id.DetailCategoryImageView);
 
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -197,6 +198,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 bucketlistVO.deleteAllFromRealm();
                 realm.commitTransaction();
                 intent = new Intent(DetailActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
                 startActivity(intent);
                 break;
 
@@ -220,6 +222,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 realm.copyToRealm(bucketlistVO);
                 realm.commitTransaction();
                 intent = new Intent(DetailActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
                 startActivity(intent);
                 break;
 
@@ -251,12 +254,24 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 ibStar4.setEnabled(true);
                 ibStar5.setEnabled(true);
 
+                if(!(ibStar1.getColorFilter() == null)) start_count++;
+                if(!(ibStar2.getColorFilter() == null)) start_count++;
+                if(!(ibStar3.getColorFilter() == null)) start_count++;
+                if(!(ibStar4.getColorFilter() == null)) start_count++;
+                if(!(ibStar5.getColorFilter() == null)) start_count++;
+
                 ibStar1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+//
+//                        if(count1 % 2 == 0) {ibStar1.setColorFilter(getResources().getColor(R.color.staryellow)); count1++;}
+//                        else {ibStar1.setColorFilter(null); count1++;}
 
-                        if(count1 % 2 == 0) {ibStar1.setColorFilter(getResources().getColor(R.color.staryellow)); count1++;}
-                        else {ibStar1.setColorFilter(null); count1++;}
+                        if(ibStar1.getColorFilter() == null) {
+                            ibStar1.setColorFilter(getResources().getColor(R.color.staryellow)); start_count++;
+                        } else {
+                            ibStar1.setColorFilter(null); start_count--;
+                        }
                     }
                 });
 
@@ -264,17 +279,29 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onClick(View view) {
 
-                        if(count2 % 2 == 0) {ibStar2.setColorFilter(getResources().getColor(R.color.staryellow)); count2++;}
-                        else {ibStar2.setColorFilter(null); count2++;}
+//                        if(count2 % 2 == 0) {ibStar2.setColorFilter(getResources().getColor(R.color.staryellow)); count2++;}
+//                        else {ibStar2.setColorFilter(null); count2++;}
+
+                        if(ibStar2.getColorFilter() == null) {
+                            ibStar2.setColorFilter(getResources().getColor(R.color.staryellow)); start_count++;
+                        } else {
+                            ibStar2.setColorFilter(null); start_count--;
+                        }
                     }
                 });
 
                 ibStar3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+//
+//                        if(count3 % 2 == 0) {ibStar3.setColorFilter(getResources().getColor(R.color.staryellow)); count3++; }
+//                        else {ibStar3.setColorFilter(null); count3++; }
 
-                        if(count3 % 2 == 0) {ibStar3.setColorFilter(getResources().getColor(R.color.staryellow)); count3++;}
-                        else {ibStar3.setColorFilter(null); count3++;}
+                        if(ibStar3.getColorFilter() == null) {
+                            ibStar3.setColorFilter(getResources().getColor(R.color.staryellow)); start_count++;
+                        } else {
+                            ibStar3.setColorFilter(null); start_count--;
+                        }
                     }
                 });
 
@@ -282,8 +309,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onClick(View view) {
 
-                        if(count4 % 2 == 0) {ibStar4.setColorFilter(getResources().getColor(R.color.staryellow)); count4++;}
-                        else {ibStar4.setColorFilter(null); count4++;}
+//                        if(count4 % 2 == 0) {ibStar4.setColorFilter(getResources().getColor(R.color.staryellow)); count4++; }
+//                        else {ibStar4.setColorFilter(null); count4++; }
+
+                        if(ibStar4.getColorFilter() == null) {
+                            ibStar4.setColorFilter(getResources().getColor(R.color.staryellow)); start_count++;
+                        } else {
+                            ibStar4.setColorFilter(null); start_count--;
+                        }
                     }
                 });
 
@@ -291,8 +324,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onClick(View view) {
 
-                        if(count5 % 2 == 0) {ibStar5.setColorFilter(getResources().getColor(R.color.staryellow)); count5++;}
-                        else {ibStar5.setColorFilter(null); count5++;}
+//                        if(count5 % 2 == 0) {ibStar5.setColorFilter(getResources().getColor(R.color.staryellow)); count5++; }
+//                        else {ibStar5.setColorFilter(null); count5++; }
+
+                        if(ibStar5.getColorFilter() == null) {
+                            ibStar5.setColorFilter(getResources().getColor(R.color.staryellow)); start_count++;
+                        } else {
+                            ibStar5.setColorFilter(null); start_count--;
+                        }
                     }
                 });
 
@@ -357,8 +396,37 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
                 btnSwitcher.showNext();
 
+                putDatatoRealm();
+
+                intent = new Intent(DetailActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
+                startActivity(intent);
+
                 break;
         }
+    }
+
+    private void putDatatoRealm() {
+        realm.beginTransaction();
+        bucketlistVO.get(0).title = etTitle.getText().toString();
+        bucketlistVO.get(0).content = etContent.getText().toString();
+        bucketlistVO.get(0).companion = etCompanion.getText().toString();
+        bucketlistVO.get(0).place = etPlace.getText().toString();
+        DatePicker datePickerStart = findViewById(R.id.DetailDatePickerStart);
+        bucketlistVO.get(0).start_year = datePickerStart.getYear();
+        bucketlistVO.get(0).start_month = datePickerStart.getMonth() + 1;
+        bucketlistVO.get(0).start_day = datePickerStart.getDayOfMonth();
+        DatePicker datePickerEnd = findViewById(R.id.DetailDatePickerEnd);
+        bucketlistVO.get(0).end_year = datePickerEnd.getYear();
+        bucketlistVO.get(0).end_month = datePickerEnd.getMonth() + 1;
+        bucketlistVO.get(0).end_day = datePickerEnd.getDayOfMonth();
+        bucketlistVO.get(0).category_index = categorySpinner.getSelectedItemPosition()+1;
+        bucketlistVO.get(0).hashtag1 = etHashtag1.getText().toString();
+        bucketlistVO.get(0).hashtag2 = etHashtag2.getText().toString();
+        bucketlistVO.get(0).hashtag3 = etHashtag3.getText().toString();
+        bucketlistVO.get(0).star_count = start_count;
+        bucketlistVO.get(0).opinion = etOpinion.getText().toString();
+        realm.commitTransaction();
     }
 
     private void setSpinner() {
