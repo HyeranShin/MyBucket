@@ -18,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import java.util.Calendar;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.realm.DynamicRealm;
 import io.realm.Realm;
@@ -137,6 +139,19 @@ public class AddFragment extends Fragment{
 
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        title.setText("");
+        content.setText("");
+        companion.setText("");
+        place.setText("");
+        categorySpinner.setSelection(0);
+        hashtag1.setText("");
+        hashtag2.setText("");
+        hashtag3.setText("");
     }
 
     // Realm 초기화
