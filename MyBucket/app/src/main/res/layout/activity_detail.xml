@@ -226,8 +226,7 @@
                 android:text="-"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:paddingTop="100dp"
-                android:paddingBottom="100dp"
+                android:layout_gravity="center_vertical"
                 android:textSize="30sp"/>
 
             <DatePicker
@@ -250,16 +249,17 @@
         android:paddingBottom="15dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="카테고리선택"
             android:background="@drawable/greenborder"
-            android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:paddingTop="10dp"
+            android:text="카테고리"
+            android:textSize="30sp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="60dp"

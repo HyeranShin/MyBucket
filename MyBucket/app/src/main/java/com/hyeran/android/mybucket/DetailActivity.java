@@ -189,18 +189,16 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        Intent intent;
         ViewSwitcher btnSwitcher = findViewById(R.id.btn_switcher_detail);
+        DatePicker datePickerStart = findViewById(R.id.DetailDatePickerStart);
+        DatePicker datePickerEnd = findViewById(R.id.DetailDatePickerEnd);
 
         switch (v.getId()) {
             case R.id.btn_delete_detail:
                 realm.beginTransaction();
                 bucketlistVO.deleteAllFromRealm();
                 realm.commitTransaction();
-                intent = new Intent(DetailActivity.this, MainActivity.class);
                 finish();
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
-//                startActivity(intent);
                 break;
 
             case R.id.btn_change_state_detail:
@@ -222,15 +220,15 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 realm.copyToRealm(bucketlistVO);
                 realm.commitTransaction();
-//                intent = new Intent(DetailActivity.this, MainActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
-//                startActivity(intent);
-//                finish();
                 break;
 
             case R.id.btn_modify_detail:
 
+                detailDate.setVisibility(View.GONE);
                 modifyDateLayout.setVisibility(View.VISIBLE);
+
+                datePickerStart.updateDate(bucketlistVO.get(0).start_year, bucketlistVO.get(0).start_month-1, bucketlistVO.get(0).start_day);
+                datePickerEnd.updateDate(bucketlistVO.get(0).end_year, bucketlistVO.get(0).end_month-1, bucketlistVO.get(0).end_day);
                 categorySpinner.setEnabled(true);
 
                 etTitle.setText(tvTitle.getText().toString());
@@ -344,13 +342,13 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.btn_save_detail:
 
-                DatePicker datePickerStart = findViewById(R.id.DetailDatePickerStart);
+                detailDate.setVisibility(View.VISIBLE);
+
                 startday = datePickerStart.getDayOfMonth();
                 startmonth = datePickerStart.getMonth() + 1;
                 startyear = datePickerStart.getYear();
                 //datePickerStart.updateDate(startyear, startmonth, startday);
 
-                DatePicker datePickerEnd = findViewById(R.id.DetailDatePickerEnd);
 
                 endday = datePickerEnd.getDayOfMonth();
                 endmonth = datePickerEnd.getMonth() + 1;
@@ -402,9 +400,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
                 putDatatoRealm();
 
-                intent = new Intent(DetailActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
-                startActivity(intent);
+//                intent = new Intent(DetailActivity.this, MainActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
+//                startActivity(intent);
 
                 break;
         }
