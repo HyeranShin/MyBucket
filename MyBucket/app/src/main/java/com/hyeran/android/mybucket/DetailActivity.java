@@ -73,7 +73,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         btnChangeState = findViewById(R.id.btn_change_state_detail);
         btnChangeState.setOnClickListener(this);
 
-        vsTitle = findViewById(R.id.TItleSwitcher);
+//        vsTitle = findViewById(R.id.TItleSwitcher);
         tvTitle = findViewById(R.id.DetailTitle);
         etTitle = findViewById(R.id.DetailTItleEdit);
 
@@ -198,8 +198,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 bucketlistVO.deleteAllFromRealm();
                 realm.commitTransaction();
                 intent = new Intent(DetailActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
-                startActivity(intent);
+                finish();
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
+//                startActivity(intent);
                 break;
 
             case R.id.btn_change_state_detail:
@@ -221,9 +222,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 realm.copyToRealm(bucketlistVO);
                 realm.commitTransaction();
-                intent = new Intent(DetailActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
-                startActivity(intent);
+//                intent = new Intent(DetailActivity.this, MainActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
+//                startActivity(intent);
+                finish();
                 break;
 
             case R.id.btn_modify_detail:
@@ -244,7 +246,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 btnVideo.setVisibility(View.VISIBLE);
 
                 if(count % 2 == 0) {
-                    vsTitle.showNext(); vsContent.showNext(); vsCompanion.showNext(); vsPlace.showNext();
+//                    vsTitle.showNext();
+                    vsContent.showNext(); vsCompanion.showNext(); vsPlace.showNext();
                     vsHashtag1.showNext(); vsHashtag2.showNext(); vsHashtag3.showNext(); vsOpinion.showNext(); count++;
                 }
 
@@ -369,7 +372,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 tvOpinion.setText(etOpinion.getText().toString());
 
                 if(count % 2 == 1 ) {
-                    vsTitle.showNext(); vsContent.showNext();vsCompanion.showNext(); vsPlace.showNext();
+//                    vsTitle.showNext();
+                    vsContent.showNext();vsCompanion.showNext(); vsPlace.showNext();
                     vsHashtag1.showNext(); vsHashtag2.showNext(); vsHashtag3.showNext(); vsOpinion.showNext();count++;
                 }
 

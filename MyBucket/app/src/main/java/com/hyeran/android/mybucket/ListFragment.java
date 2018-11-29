@@ -55,4 +55,14 @@ public class ListFragment extends Fragment {
         BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist);
         rv_bucketlist.setAdapter(bucketlistAdapter);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ArrayList<BucketlistVO> bucketlist;
+        if(category_index==0) bucketlist = new ArrayList<>(realm.where(BucketlistVO.class).findAll());
+        else bucketlist = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).findAll());
+        BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist);
+        rv_bucketlist.setAdapter(bucketlistAdapter);
+    }
 }

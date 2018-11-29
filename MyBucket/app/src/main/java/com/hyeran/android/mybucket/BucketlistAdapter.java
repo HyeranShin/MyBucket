@@ -172,6 +172,7 @@ public class BucketlistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 context.startActivity(intent);
             }
         });
+
     }
 
     @Override
