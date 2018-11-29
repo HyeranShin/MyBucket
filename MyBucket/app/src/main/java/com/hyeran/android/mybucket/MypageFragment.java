@@ -93,7 +93,7 @@ public class MypageFragment extends Fragment {
         String showMyImageString = pref.getString("MyImage", null);
         final CircleImageView imageView = (CircleImageView) view.findViewById(R.id.MyPageImage);
         if(showMyImageString == null) {
-            imageView.setImageResource(R.drawable.charlie);
+            imageView.setImageResource(R.drawable.initial_profile);
         } else {
             Bitmap showMyImage = decodeBase64(showMyImageString);
             imageView.setImageBitmap(showMyImage);

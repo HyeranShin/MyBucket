@@ -3,11 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="16dp"
     android:layout_marginBottom="16dp"
     android:layout_marginHorizontal="16dp"
     android:id="@+id/whole_item_bucketlist"
-    android:background="#ffeeec">
+    android:background="@drawable/item_background"
+    >
+<!--ffeeec-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -78,61 +81,63 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="중요도: "
                     android:fontFamily="@font/nanumsquare_regular"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_star1_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
                     android:textColor="#D5D5D5"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_star2_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
                     android:textColor="#D5D5D5"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_star3_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
                     android:textColor="#D5D5D5"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_star4_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
                     android:textColor="#D5D5D5"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_star5_item_bucketlist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="★"
                     android:textColor="#D5D5D5"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumsquare_regular"
                     android:text="기한: "
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_year_item_bucketlist"
                     android:layout_width="wrap_content"
@@ -140,14 +145,14 @@
                     android:fontFamily="@font/nanumsquare_light"
                     android:text="2018"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="."
                     android:fontFamily="@font/nanumsquare_light"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_month_item_bucketlist"
                     android:layout_width="wrap_content"
@@ -155,14 +160,14 @@
                     android:text="12"
                     android:fontFamily="@font/nanumsquare_light"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="."
                     android:fontFamily="@font/nanumsquare_light"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_day_item_bucketlist"
                     android:layout_width="wrap_content"
@@ -170,26 +175,27 @@
                     android:text="7"
                     android:fontFamily="@font/nanumsquare_light"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumsquare_regular"
                     android:text="해시태그: "
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumsquare_light"
                     android:text="#"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_hashtag1_item_bucketlist"
                     android:layout_width="wrap_content"
@@ -197,14 +203,14 @@
                     android:fontFamily="@font/nanumsquare_light"
                     android:text="개발"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumsquare_light"
                     android:text=" #"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_hashtag2_item_bucketlist"
                     android:layout_width="wrap_content"
@@ -212,14 +218,14 @@
                     android:fontFamily="@font/nanumsquare_light"
                     android:text="모프"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nanumsquare_light"
                     android:text=" #"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
                 <TextView
                     android:id="@+id/tv_hashtag3_item_bucketlist"
                     android:layout_width="wrap_content"
@@ -227,7 +233,7 @@
                     android:fontFamily="@font/nanumsquare_light"
                     android:text="어플"
                     android:textColor="#000000"
-                    android:textSize="40sp"/>
+                    android:textSize="28sp"/>
             </LinearLayout>
         </LinearLayout>
         <ImageView

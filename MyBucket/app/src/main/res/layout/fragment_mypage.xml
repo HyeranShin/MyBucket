@@ -32,16 +32,16 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:id="@+id/MyPageImage"
-                android:src="@drawable/charlie"
+                android:src="@drawable/initial_profile"
                 />
 
             <ImageButton
                 android:id="@+id/MyPageImageChange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@drawable/camera"
+                android:layout_width="56dp"
+                android:layout_height="48dp"
+                android:background="@drawable/camera"
                 android:layout_alignParentBottom="true"
+                android:layout_margin="8dp"
                 android:layout_alignParentRight="true"/>
 
         </RelativeLayout>
@@ -67,7 +67,9 @@
                         android:layout_height="wrap_content"
                         android:text="신혜란"
                         android:textStyle="bold"
+                        android:fontFamily="@font/nanumsquare_bold"
                         android:textSize="40sp"
+                        android:textColor="#000000"
                         android:id="@+id/MypageName" />
 
                     <EditText
@@ -85,12 +87,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
+                android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="달성현황: "
+                    android:textColor="#000000"
+                    android:fontFamily="@font/nanumsquare_regular"
                     android:textSize="30sp"/>
                 <ImageView
                     android:id="@+id/iv_medal"
@@ -100,17 +103,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#000000"
                     android:id="@+id/archieved_bucket_mypage"
+                    android:fontFamily="@font/nanumsquare_light"
                     android:textSize="30sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" / "
+                    android:fontFamily="@font/nanumsquare_light"
+                    android:textColor="#000000"
                     android:textSize="30sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/total_bucket_mypage"
+                    android:fontFamily="@font/nanumsquare_light"
+                    android:textColor="#000000"
                     android:textSize="30sp"/>
             </LinearLayout>
 
@@ -123,6 +132,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="다짐: "
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"
                     android:textSize="30sp"/>
 
                 <ViewSwitcher
@@ -134,6 +145,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/MypageMotto"
+                        android:fontFamily="@font/nanumsquare_light"
+                        android:textColor="#000000"
                         android:textSize="30sp"/>
 
                     <EditText
@@ -182,15 +195,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="나의 순간들"
-        android:background="@color/red"
+        android:textColor="#000000"
+        android:fontFamily="@font/nanumsquare_bold"
+        android:background="@drawable/redbutton"
         android:textSize="30sp"
         android:layout_marginLeft="38dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"/>
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
