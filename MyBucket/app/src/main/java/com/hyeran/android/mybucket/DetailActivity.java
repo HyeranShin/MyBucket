@@ -225,7 +225,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 //                intent = new Intent(DetailActivity.this, MainActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
 //                startActivity(intent);
-                finish();
+//                finish();
                 break;
 
             case R.id.btn_modify_detail:
