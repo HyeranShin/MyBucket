@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.util.Base64;
@@ -27,9 +28,15 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.realm.Realm;
@@ -146,6 +153,129 @@ public class MypageFragment extends Fragment {
             }
         });
 
+
+        ImageView rand_1 = (ImageView) view.findViewById(R.id.FirstRandomImage);
+        ImageView rand_2 = (ImageView) view.findViewById(R.id.SecondRandomImage);
+        ImageView rand_3 = (ImageView) view.findViewById(R.id.ThirdRandomImage);
+        ImageView rand_4 = (ImageView) view.findViewById(R.id.FourthRandomImage);
+        ImageView rand_5 = (ImageView) view.findViewById(R.id.FifthRandomImage);
+        ImageView rand_6 = (ImageView) view.findViewById(R.id.SixthRandomImage);
+
+        File folder = new File(Environment.getExternalStorageDirectory().toString());
+
+        if(folder.exists()) {
+            File[] allFiles = folder.listFiles(new FilenameFilter() {
+                @Override
+                public boolean accept(File file, String s) {
+                    return (s.endsWith(".jpg"));
+                }
+            });
+
+            if(allFiles != null) {
+                List<File> filelist = new ArrayList<File>(Arrays.asList(allFiles));
+                Random rand = new Random();
+                int rndInt = rand.nextInt(filelist.size());
+
+                if (filelist.size() == 0) {
+
+                } else if (filelist.size() == 1) {
+                    String stringuri = filelist.get(rndInt).getAbsolutePath().toString();
+                    Uri uri = Uri.parse(stringuri);
+                    rand_1.setImageURI(uri);
+                } else if (filelist.size() == 2) {
+                    String stringuri = filelist.get(rndInt).getAbsolutePath().toString();
+                    Uri uri = Uri.parse(stringuri);
+                    rand_1.setImageURI(uri);
+                    filelist.remove(rndInt);
+                    String stringuri2 = filelist.get(0).getAbsolutePath().toString();
+                    Uri uri2 = Uri.parse(stringuri2);
+                    rand_2.setImageURI(uri2);
+                } else if (filelist.size() == 3) {
+                    String stringuri = filelist.get(rndInt).getAbsolutePath().toString();
+                    Uri uri = Uri.parse(stringuri);
+                    rand_1.setImageURI(uri);
+                    filelist.remove(rndInt);
+                    int rndInt2 = rand.nextInt(filelist.size());
+                    String stringuri2 = filelist.get(rndInt2).getAbsolutePath().toString();
+                    Uri uri2 = Uri.parse(stringuri2);
+                    rand_2.setImageURI(uri2);
+                    filelist.remove(rndInt2);
+                    String stringuri3 = filelist.get(0).getAbsolutePath().toString();
+                    Uri uri3 = Uri.parse(stringuri3);
+                    rand_3.setImageURI(uri3);
+                } else if (filelist.size() == 4) {
+                    String stringuri = filelist.get(rndInt).getAbsolutePath().toString();
+                    Uri uri = Uri.parse(stringuri);
+                    rand_1.setImageURI(uri);
+                    filelist.remove(rndInt);
+                    int rndInt2 = rand.nextInt(filelist.size());
+                    String stringuri2 = filelist.get(rndInt2).getAbsolutePath().toString();
+                    Uri uri2 = Uri.parse(stringuri2);
+                    rand_2.setImageURI(uri2);
+                    filelist.remove(rndInt2);
+                    int rndInt3 = rand.nextInt(filelist.size());
+                    String stringuri3 = filelist.get(rndInt3).getAbsolutePath().toString();
+                    Uri uri3 = Uri.parse(stringuri3);
+                    rand_3.setImageURI(uri3);
+                    filelist.remove(rndInt3);
+                    String stringuri4 = filelist.get(0).getAbsolutePath().toString();
+                    Uri uri4 = Uri.parse(stringuri4);
+                    rand_4.setImageURI(uri4);
+                } else if (filelist.size() == 5) {
+                    String stringuri = filelist.get(rndInt).getAbsolutePath().toString();
+                    Uri uri = Uri.parse(stringuri);
+                    rand_1.setImageURI(uri);
+                    filelist.remove(rndInt);
+                    int rndInt2 = rand.nextInt(filelist.size());
+                    String stringuri2 = filelist.get(rndInt2).getAbsolutePath().toString();
+                    Uri uri2 = Uri.parse(stringuri2);
+                    rand_2.setImageURI(uri2);
+                    filelist.remove(rndInt2);
+                    int rndInt3 = rand.nextInt(filelist.size());
+                    String stringuri3 = filelist.get(rndInt3).getAbsolutePath().toString();
+                    Uri uri3 = Uri.parse(stringuri3);
+                    rand_3.setImageURI(uri3);
+                    filelist.remove(rndInt3);
+                    int rndInt4 = rand.nextInt(filelist.size());
+                    String stringuri4 = filelist.get(rndInt4).getAbsolutePath().toString();
+                    Uri uri4 = Uri.parse(stringuri4);
+                    rand_4.setImageURI(uri4);
+                    filelist.remove(rndInt4);
+                    String stringuri5 = filelist.get(0).getAbsolutePath().toString();
+                    Uri uri5 = Uri.parse(stringuri5);
+                    rand_5.setImageURI(uri5);
+                } else if (filelist.size() >= 6) {
+                    String stringuri = filelist.get(rndInt).getAbsolutePath().toString();
+                    Uri uri = Uri.parse(stringuri);
+                    rand_1.setImageURI(uri);
+                    filelist.remove(rndInt);
+                    int rndInt2 = rand.nextInt(filelist.size());
+                    String stringuri2 = filelist.get(rndInt2).getAbsolutePath().toString();
+                    Uri uri2 = Uri.parse(stringuri2);
+                    rand_2.setImageURI(uri2);
+                    filelist.remove(rndInt2);
+                    int rndInt3 = rand.nextInt(filelist.size());
+                    String stringuri3 = filelist.get(rndInt3).getAbsolutePath().toString();
+                    Uri uri3 = Uri.parse(stringuri3);
+                    rand_3.setImageURI(uri3);
+                    filelist.remove(rndInt3);
+                    int rndInt4 = rand.nextInt(filelist.size());
+                    String stringuri4 = filelist.get(rndInt4).getAbsolutePath().toString();
+                    Uri uri4 = Uri.parse(stringuri4);
+                    rand_4.setImageURI(uri4);
+                    filelist.remove(rndInt4);
+                    int rndInt5 = rand.nextInt(filelist.size());
+                    String stringuri5 = filelist.get(rndInt5).getAbsolutePath().toString();
+                    Uri uri5 = Uri.parse(stringuri5);
+                    rand_5.setImageURI(uri5);
+                    filelist.remove(rndInt5);
+                    int rndInt6 = rand.nextInt(filelist.size());
+                    String stringuri6 = filelist.get(rndInt6).getAbsolutePath().toString();
+                    Uri uri6 = Uri.parse(stringuri6);
+                    rand_6.setImageURI(uri6);
+                }
+            }
+        }
 
         return view;
     }
