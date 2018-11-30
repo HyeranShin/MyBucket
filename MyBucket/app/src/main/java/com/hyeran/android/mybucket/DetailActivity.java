@@ -1,10 +1,24 @@
 package com.hyeran.android.mybucket;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.view.View;
@@ -14,10 +28,21 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
 import android.widget.ViewSwitcher;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URLEncoder;
+import java.util.Vector;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.realm.Realm;
@@ -60,12 +85,32 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     LinearLayout modifyDateLayout;
     TextView detailDate;
 
+    ImageButton addImage;
+    int RESULT_LOAD_IMAGE = 1;
+    int fileIndex = 0;
+    String filename = "";
+    String EXTERNAL_STORAGE_PATH = "";
+    ImageView addedImage;
+    String unique;
+
+    ImageButton addVideo;
+    int REQUEST_TAKE_GALLERY_VIDEO = 2;
+    VideoView addedvideo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         setTitle("자세히 보기");
         TITLE = getIntent().getStringExtra("TITLE");
+
+        String state = Environment.getExternalStorageState();
+
+        if(!state.equals(Environment.MEDIA_MOUNTED)) {
+            Toast.makeText(getApplicationContext(), "외장 메모리가 마운트 되지 않았습니다.", Toast.LENGTH_LONG).show();
+        } else {
+            EXTERNAL_STORAGE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
+        }
 
         findViewById(R.id.btn_delete_detail).setOnClickListener(this);
         findViewById(R.id.btn_modify_detail).setOnClickListener(this);
@@ -185,6 +230,48 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+        //SharedPreferences 사용
+        unique = tvTitle.getText().toString();
+        SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+
+        //각 버킷리스트에 맞는 사진을 보여줌
+        int getFileIndex = pref.getInt("fileIndex", 0);
+        String uniquestring = pref.getString("unique", null);
+        addedImage = (ImageView)findViewById(R.id.added_image);
+        if(getFileIndex == 0) {
+            addedImage.setVisibility(View.GONE);
+        } else {
+            addedImage.setVisibility(View.VISIBLE);
+
+            String myuri = EXTERNAL_STORAGE_PATH+"/"+uniquestring+getFileIndex+".jpg";
+            Uri uri = Uri.parse(myuri);
+            addedImage.setImageURI(uri);
+        }
+
+        //각 버킷리스트에 맞는 비디오 보여줌
+        addedvideo = (VideoView) findViewById(R.id.added_video);
+        String videouristring = pref.getString("videouristring", null);
+        if(videouristring == null) {
+            addedvideo.setVisibility(View.GONE);
+        } else {
+            addedvideo.setVisibility(View.VISIBLE);
+            MediaController mediaController = new MediaController(this);
+            mediaController.setAnchorView(addedvideo);
+            addedvideo.setMediaController(mediaController);
+            addedvideo.setVideoPath(videouristring);
+            addedvideo.seekTo(1);
+        }
+
+        //사진 추가
+        addImage = findViewById(R.id.btn_image_detail);
+        addImage.setOnClickListener(this);
+
+        //동영상 추가
+        addVideo = findViewById(R.id.btn_video_detail);
+        addVideo.setOnClickListener(this);
+
+        checkDangerousPermission();
     }
 
     @Override
@@ -226,6 +313,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
                 detailDate.setVisibility(View.GONE);
                 modifyDateLayout.setVisibility(View.VISIBLE);
+                addedImage.setVisibility(View.VISIBLE);
+                addedvideo.setVisibility(View.VISIBLE);
 
                 datePickerStart.updateDate(bucketlistVO.get(0).start_year, bucketlistVO.get(0).start_month-1, bucketlistVO.get(0).start_day);
                 datePickerEnd.updateDate(bucketlistVO.get(0).end_year, bucketlistVO.get(0).end_month-1, bucketlistVO.get(0).end_day);
@@ -404,7 +493,51 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 //                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);   // 액티비티 스택 삭제
 //                startActivity(intent);
 
+                ImageView addedImage = (ImageView) findViewById(R.id.added_image);
+                boolean hasDrawable = (addedImage.getDrawable() != null);
+
+                if(hasDrawable) {
+                    Bitmap bm = ((BitmapDrawable)addedImage.getDrawable()).getBitmap();
+                    filename = createFilename();
+                    FileOutputStream fOut;
+                    String strDirectory = EXTERNAL_STORAGE_PATH;
+
+                    File f = new File(strDirectory, filename);
+
+                    try {
+                        fOut = new FileOutputStream(f);
+                        bm.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
+                        fOut.flush();
+                        fOut.close();
+                        MediaStore.Images.Media.insertImage(getContentResolver(), f.getAbsolutePath(), f.getName(), f.getName());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    String unique = tvTitle.getText().toString();
+                    SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+
+                    editor.putInt("fileIndex", fileIndex);
+                    editor.putString("unique", tvTitle.getText().toString());
+                    editor.commit();
+                } else {
+                    addedImage.setVisibility(View.GONE);
+                }
                 break;
+
+            case R.id.btn_image_detail:
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, RESULT_LOAD_IMAGE);
+                break;
+
+            case R.id.btn_video_detail:
+                Intent videoPickerIntent = new Intent(Intent.ACTION_PICK);
+                videoPickerIntent.setType("video/*");
+                startActivityForResult(videoPickerIntent, REQUEST_TAKE_GALLERY_VIDEO );
+                break;
+
         }
     }
 
@@ -481,6 +614,112 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case 2:
                 btnChangeState.setText("달성 취소로 변경");
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        ImageView addedImage = (ImageView) findViewById(R.id.added_image);
+        addedvideo = (VideoView) findViewById(R.id.added_video);
+
+        if (resultCode == RESULT_OK) {
+            if(requestCode == RESULT_LOAD_IMAGE) {
+                try {
+                    final Uri imageUri = data.getData();
+                    final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                    addedImage.setImageBitmap(selectedImage);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "오류가 발생했습니다.", Toast.LENGTH_LONG).show();
+                }
+
+            } else if(requestCode == REQUEST_TAKE_GALLERY_VIDEO) {
+                    final Uri videoUri = data.getData();
+
+                    String selectedVideoPath = getPath(data.getData());
+                    if(selectedVideoPath != null) {
+                        MediaController mediaController = new MediaController(this);
+                        mediaController.setAnchorView(addedvideo);
+                        addedvideo.setMediaController(mediaController);
+                        addedvideo.setVideoPath(videoUri.toString());
+                        addedvideo.seekTo(1);
+
+                        SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = pref.edit();
+
+                        editor.putString("videouristring", videoUri.toString());
+                        editor.commit();
+
+                    }
+            }
+        }else {
+            Toast.makeText(this, "사진을 선택하지 않았습니다.",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public String getPath(Uri uri) {
+        String[] projection = { MediaStore.Video.Media.DATA };
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        if (cursor != null) {
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } else
+            return null;
+
+    }
+
+    private String createFilename() {
+        fileIndex++;
+        String newFilename = "";
+        String unique = tvTitle.getText().toString();
+
+        newFilename = (unique+fileIndex+".jpg");
+        return newFilename;
+    }
+
+    private void checkDangerousPermission(){
+        String[] permissions = {
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+
+        };
+
+        int permissionCheck = PackageManager.PERMISSION_GRANTED;
+        for (int i = 0; i < permissions.length; i++) {
+            permissionCheck = ContextCompat.checkSelfPermission(this, permissions[i]);
+            if (permissionCheck == PackageManager.PERMISSION_DENIED) {
+                break;
+            }
+        }
+
+        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0])) {
+                Toast.makeText(this, "권한 설명 필요함.", Toast.LENGTH_LONG).show();
+            } else {
+                ActivityCompat.requestPermissions(this, permissions, 1);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == 1) {
+            for(int i = 0; i < permissions.length; i++) {
+                if(grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, permissions[i] + "권한이 승인됨", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, permissions[i] + "권한이 승인되지 않음", Toast.LENGTH_LONG).show();
+                }
+            }
         }
     }
 }

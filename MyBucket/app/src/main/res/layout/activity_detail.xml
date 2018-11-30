@@ -462,6 +462,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:id="@+id/added_image" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingBottom="15dp"
         android:paddingLeft="30dp"
@@ -491,6 +501,16 @@
             android:gravity="right"/>
 
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <VideoView
+            android:layout_width="400dp"
+            android:layout_height="300dp"
+            android:id="@+id/added_video" />
     </LinearLayout>
 
     <LinearLayout
