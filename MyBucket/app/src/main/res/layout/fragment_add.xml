@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="제목"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -52,7 +52,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
     </LinearLayout>
 
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:text="내용"
             android:paddingBottom="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -79,14 +79,14 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:lines="5"
-            android:minLines="2"
+            android:minLines="1"
             android:maxLines="8"
             android:background="@drawable/border"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
     </LinearLayout>
 
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:text="함께 하는 사람"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -116,7 +116,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
     </LinearLayout>
 
@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:text="장소"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -146,7 +146,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
     </LinearLayout>
 
@@ -163,7 +163,7 @@
             android:layout_height="wrap_content"
             android:text="기한"
             android:paddingBottom="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -216,7 +216,7 @@
             android:layout_height="wrap_content"
             android:text="카테고리"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -243,7 +243,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/CategorySpinner"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
     </LinearLayout>
 
@@ -260,7 +260,7 @@
             android:layout_height="wrap_content"
             android:text="해시태그"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -268,7 +268,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:fontFamily="@font/nanumsquare_regular"
             android:textColor="#000000"/>
 
@@ -276,13 +276,13 @@
             android:id="@+id/et_hashtag1_add"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:fontFamily="@font/nanumsquare_regular"
             android:textColor="#000000"/>
 
@@ -290,13 +290,13 @@
             android:id="@+id/et_hashtag2_add"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:fontFamily="@font/nanumsquare_regular"
             android:textColor="#000000"/>
 
@@ -304,7 +304,7 @@
             android:id="@+id/et_hashtag3_add"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textSize="30sp"/>
+            android:textSize="26sp"/>
 
     </LinearLayout>
 
@@ -321,7 +321,7 @@
             android:layout_height="wrap_content"
             android:text="중요도"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -378,7 +378,7 @@
             android:layout_height="wrap_content"
             android:text="추가하기"
             android:background="@drawable/redbutton"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:padding="10dp"
             android:fontFamily="@font/nanumsquare_bold"/>
 

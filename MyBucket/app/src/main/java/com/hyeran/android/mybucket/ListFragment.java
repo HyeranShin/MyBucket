@@ -1,20 +1,20 @@
 package com.hyeran.android.mybucket;
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
-import io.realm.DynamicRealm;
+import de.hdodenhof.circleimageview.CircleImageView;
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.RealmMigration;
-import io.realm.RealmObjectSchema;
-import io.realm.RealmSchema;
 
 public class ListFragment extends Fragment {
 
@@ -25,6 +25,8 @@ public class ListFragment extends Fragment {
 
     RecyclerView rv_bucketlist;
     RecyclerView.LayoutManager layoutManager;
+    ImageView filter_run, filter_medal, filter_waiting;
+    TextView filter_all;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,10 +34,63 @@ public class ListFragment extends Fragment {
         category_index = getArguments().getInt("CATEGORY_INDEX");
 
         rv_bucketlist = v.findViewById(R.id.rv_bucketlist);
+        filter_run = v.findViewById(R.id.iv_filtering_run);
+        filter_medal = v.findViewById(R.id.iv_filtering_medal);
+        filter_all = v.findViewById(R.id.tv_filtering_all);
+        filter_waiting = v.findViewById(R.id.filtering_waiting);
+
+        filter_waiting.setColorFilter(Color.parseColor("#FFEEEC"));
+        filter_run.setColorFilter(Color.parseColor("#3669CF"));
+        filter_medal.setColorFilter(Color.parseColor("#FFCD12"));
 
         init();
 
+        filtering();
+
         return v;
+    }
+
+    public void filtering() {
+        filter_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<BucketlistVO> bucketlist_all;
+                if(category_index==0) bucketlist_all = new ArrayList<>(realm.where(BucketlistVO.class).findAll());
+                else bucketlist_all = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).findAll());
+                BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist_all);
+                rv_bucketlist.setAdapter(bucketlistAdapter);
+            }
+        });
+        filter_run.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<BucketlistVO> bucketlist_run;
+                if(category_index==0) bucketlist_run = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("state", 1).findAll());
+                else bucketlist_run = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).findAll());
+                BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist_run);
+                rv_bucketlist.setAdapter(bucketlistAdapter);
+            }
+        });
+        filter_medal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<BucketlistVO> bucketlist_medal;
+                if(category_index==0) bucketlist_medal = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("state", 2).findAll());
+                else bucketlist_medal = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).equalTo("state", 2).findAll());
+                BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist_medal);
+                rv_bucketlist.setAdapter(bucketlistAdapter);
+            }
+        });
+        filter_waiting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<BucketlistVO> bucketlist_waiting;
+                if(category_index==0) bucketlist_waiting = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("state", 0).findAll());
+                else bucketlist_waiting = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).equalTo("state", 2).findAll());
+                BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist_waiting);
+                rv_bucketlist.setAdapter(bucketlistAdapter);
+            }
+        });
     }
 
     // Realm 초기화

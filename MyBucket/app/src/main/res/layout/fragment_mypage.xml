@@ -50,7 +50,8 @@
             android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="24dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,7 +77,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/MyPageNameEdit"
-                        android:textSize="40sp"
+                        android:textSize="32sp"
                         android:textStyle="bold"
                         android:maxLines="1"/>
 
@@ -97,28 +98,28 @@
                     android:textSize="30sp"/>
                 <ImageView
                     android:id="@+id/iv_medal"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/stamp_medal" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:id="@+id/archieved_bucket_mypage"
-                    android:fontFamily="@font/nanumsquare_light"
+                    android:fontFamily="@font/nanumsquare_regular"
                     android:textSize="30sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" / "
-                    android:fontFamily="@font/nanumsquare_light"
+                    android:fontFamily="@font/nanumsquare_regular"
                     android:textColor="#000000"
                     android:textSize="30sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/total_bucket_mypage"
-                    android:fontFamily="@font/nanumsquare_light"
+                    android:fontFamily="@font/nanumsquare_regular"
                     android:textColor="#000000"
                     android:textSize="30sp"/>
             </LinearLayout>
@@ -126,7 +127,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -145,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/MypageMotto"
-                        android:fontFamily="@font/nanumsquare_light"
+                        android:fontFamily="@font/nanumsquare_regular"
                         android:textColor="#000000"
                         android:textSize="30sp"/>
 
@@ -153,7 +155,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/MyPageMottoEdit"
-                        android:textSize="30sp"
+                        android:textSize="24sp"
                         android:maxLines="2"/>
 
                 </ViewSwitcher>
@@ -198,7 +200,7 @@
         android:textColor="#000000"
         android:fontFamily="@font/nanumsquare_bold"
         android:background="@drawable/redbutton"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:layout_marginLeft="38dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"

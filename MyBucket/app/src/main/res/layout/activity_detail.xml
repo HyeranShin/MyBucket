@@ -36,7 +36,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailTitle"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
 
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailTItleEdit"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"/>
+                android:textSize="16sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -78,7 +78,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailContent"
                 android:paddingTop="10dp"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
             <EditText
@@ -101,9 +101,9 @@
                 android:paddingTop="10dp"
                 android:inputType="textMultiLine"
                 android:lines="5"
-                android:minLines="2"
+                android:minLines="1"
                 android:maxLines="8"
-                android:textSize="30sp"/>
+                android:textSize="24sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -118,12 +118,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/yellowborder"
-            android:text="같이 하는 사람"
+            android:text="함께 하는 사람"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPerson"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
             <EditText
@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPersonEdit"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"/>
+                android:textSize="24sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -164,7 +164,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPlace"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
             <EditText
@@ -185,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPlaceEdit"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"/>
+                android:textSize="24sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -211,7 +211,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -220,7 +220,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/DetailDate"
             android:layout_marginLeft="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_regular"
             android:textColor="#000000"/>
 
@@ -247,7 +247,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:layout_gravity="center_vertical"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
 
@@ -281,7 +281,7 @@
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:text="카테고리"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -296,7 +296,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/DetailCategorySpinner"
-            android:textSize="30sp"/>
+            android:textSize="28sp"/>
 
     </LinearLayout>
 
@@ -316,7 +316,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -325,7 +325,7 @@
             android:layout_height="wrap_content"
             android:text="#"
             android:paddingLeft="10dp"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:fontFamily="@font/nanumsquare_regular"
             android:textColor="#000000"/>
 
@@ -338,7 +338,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailHashtag1"
-                android:textSize="30sp"
+                android:textSize="24sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
 
@@ -346,13 +346,13 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/HastTag1EditText"
-                android:textSize="30sp"/>
+                android:textSize="22sp"/>
         </ViewSwitcher>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:fontFamily="@font/nanumsquare_regular"
             android:textColor="#000000"/>
 
@@ -364,7 +364,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailHashtag2"
-                android:textSize="30sp"
+                android:textSize="24sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
 
@@ -372,13 +372,13 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/HastTag2EditText"
-                android:textSize="30sp"/>
+                android:textSize="22sp"/>
         </ViewSwitcher>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:fontFamily="@font/nanumsquare_regular"
             android:textColor="#000000"/>
 
@@ -390,7 +390,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailHashtag3"
-                android:textSize="30sp"
+                android:textSize="24sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
 
@@ -398,7 +398,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/HashTag3EditText"
-                android:textSize="30sp"/>
+                android:textSize="22sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
@@ -416,51 +416,57 @@
             android:background="@drawable/yellowborder"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:layout_gravity="center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_marginRight="15dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/starbutton"
             android:id="@+id/DetailStar1"
-            android:paddingRight="30dp"
+            android:layout_marginRight="10dp"
             android:background="@null"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/starbutton"
             android:id="@+id/DetailStar2"
-            android:paddingRight="30dp"
+            android:layout_marginRight="10dp"
             android:background="@null"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/starbutton"
             android:id="@+id/DetailStar3"
-            android:paddingRight="30dp"
+            android:layout_marginRight="10dp"
             android:background="@null"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/starbutton"
             android:id="@+id/DetailStar4"
-            android:paddingRight="30dp"
+            android:layout_marginRight="10dp"
             android:background="@null"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/starbutton"
-            android:id="@+id/DetailStar5"
-            android:background="@null"/>
+            android:background="@null"
+            android:id="@+id/DetailStar5"/>
     </LinearLayout>
 
     <LinearLayout
@@ -480,7 +486,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -527,7 +533,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
@@ -573,20 +579,22 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:fontFamily="@font/nanumsquare_bold"
             android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
             android:id="@+id/OpinionSwitcher">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailOpinion"
                 android:paddingTop="10dp"
-                android:textSize="30sp"
+                android:textSize="26sp"
+                android:lineSpacingExtra="10sp"
                 android:fontFamily="@font/nanumsquare_regular"
                 android:textColor="#000000"/>
 
@@ -599,7 +607,7 @@
                 android:minLines="2"
                 android:maxLines="8"
                 android:paddingTop="10dp"
-                android:textSize="30sp"/>
+                android:textSize="24sp"/>
         </ViewSwitcher>
     </LinearLayout>
 
