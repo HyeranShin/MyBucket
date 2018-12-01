@@ -369,7 +369,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingTop="15dp">
+        android:paddingTop="15dp"
+        android:layout_marginBottom="30dp">
 
         <Button
             android:id="@+id/btn_add_add"
@@ -379,7 +380,8 @@
             android:background="@drawable/redbutton"
             android:textSize="30sp"
             android:padding="10dp"
-            android:fontFamily="@font/nanumsquare_bold"/>
+            android:fontFamily="@font/nanumsquare_bold"
+            style="?android:attr/borderlessButtonStyle"/>
 
     </LinearLayout>
 

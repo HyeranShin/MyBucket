@@ -22,6 +22,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
+import android.util.Base64;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,6 +41,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 import android.widget.ViewSwitcher;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -102,6 +105,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     Bitmap oldbitmap;
 
     int countforvideo = 0;
+    int countforvideo2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -238,6 +242,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         //boolean hasDrawable = (addedImage.getDrawable() != null);
 
         //if(hasDrawable) {
+
             if (getFileIndex == 0) {
                 addedImage.setVisibility(View.GONE);
             } else {
@@ -691,10 +696,24 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     String selectedVideoPath = getPath(data.getData());
                     if(selectedVideoPath != null) {
                         MediaController mediaController = new MediaController(this);
+                        mediaController.setVisibility(View.GONE);
                         mediaController.setAnchorView(addedvideo);
                         addedvideo.setMediaController(mediaController);
                         addedvideo.setVideoPath(videoUri.toString());
                         addedvideo.seekTo(1);
+
+                        addedvideo.setOnTouchListener(new View.OnTouchListener() {
+                            @Override
+                            public boolean onTouch(View view, MotionEvent motionEvent) {
+                                countforvideo2++;
+                                if(countforvideo2 % 2 == 1) {
+                                    addedvideo.start();
+                                } else {
+                                    addedvideo.pause();
+                                }
+                                return false;
+                            }
+                        });
 
                         SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
@@ -770,4 +789,5 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
     }
+
 }
