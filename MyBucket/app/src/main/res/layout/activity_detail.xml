@@ -283,14 +283,26 @@
             android:text="카테고리"
             android:textSize="30sp"
             android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:layout_marginRight="15dp"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:paddingRight="10dp"
-            android:id="@+id/DetailCategoryImageView"
-            android:paddingLeft="10dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:id="@+id/DetailCategoryImageView"
+                android:src="@color/yellow"/>
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/DetailCategoryImageViewImage" />
+
+        </RelativeLayout>
 
         <Spinner
             android:layout_width="match_parent"
@@ -624,7 +636,7 @@
                 android:background="@drawable/bluebutton"
                 android:layout_marginRight="15dp"
                 android:textSize="30sp"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:textColor="#000000"/>
             <Button

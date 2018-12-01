@@ -180,52 +180,41 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         categorySpinner = findViewById(R.id.DetailCategorySpinner);
         categorySpinner.setEnabled(false);
 
-        final CircleImageView imageView = findViewById(R.id.DetailCategoryImageView);
+        final CircleImageView circleimageView = findViewById(R.id.DetailCategoryImageView);
+        final ImageView imageView = (ImageView) findViewById(R.id.DetailCategoryImageViewImage);
 
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(categorySpinner.getSelectedItemPosition() == 0) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.yellow));
                     imageView.setImageResource(R.drawable.goal);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.yellow));
-                    Drawable image = getResources().getDrawable(R.drawable.goal);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.yellow));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 1) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.orange));
                     imageView.setImageResource(R.drawable.learning);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.orange));
-                    Drawable image = getResources().getDrawable(R.drawable.learning);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.orange));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 2) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.green));
                     imageView.setImageResource(R.drawable.travel);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.green));
-                    Drawable image = getResources().getDrawable(R.drawable.travel);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.green));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 3) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.blue));
                     imageView.setImageResource(R.drawable.wishlist);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.blue));
-                    Drawable image = getResources().getDrawable(R.drawable.wishlist);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.blue));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 4) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.pink));
                     imageView.setImageResource(R.drawable.sharing);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.pink));
-                    Drawable image = getResources().getDrawable(R.drawable.sharing);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.pink));
                 }
                 else {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.purple));
                     imageView.setImageResource(R.drawable.etc);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.purple));
-                    Drawable image = getResources().getDrawable(R.drawable.etc);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.purple));
                 }
             }
             @Override
