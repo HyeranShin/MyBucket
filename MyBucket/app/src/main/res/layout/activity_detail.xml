@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/DetailTItleEdit"
                     android:paddingLeft="10dp"
-                    android:textSize="16sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
         </LinearLayout>
 
@@ -103,7 +103,7 @@
                     android:lines="5"
                     android:minLines="1"
                     android:maxLines="8"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
         </LinearLayout>
 
@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/DetailPersonEdit"
                     android:paddingLeft="10dp"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
         </LinearLayout>
 
@@ -185,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/DetailPlaceEdit"
                     android:paddingLeft="10dp"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
         </LinearLayout>
 
@@ -220,7 +220,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/DetailDate"
                     android:layout_marginLeft="10dp"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     android:fontFamily="@font/nanumsquare_regular"
                     android:textColor="#000000"/>
 
@@ -358,7 +358,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/HastTag1EditText"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
             <TextView
                 android:layout_width="wrap_content"
@@ -384,7 +384,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/HastTag2EditText"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
             <TextView
                 android:layout_width="wrap_content"
@@ -410,7 +410,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/HashTag3EditText"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
         </LinearLayout>
 
@@ -590,7 +590,7 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:textSize="30sp"
+                android:textSize="28sp"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:textColor="#000000"/>
 
@@ -603,7 +603,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/DetailOpinion"
                     android:paddingTop="10dp"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     android:fontFamily="@font/nanumsquare_regular"
                     android:textColor="#000000"/>
 
@@ -616,7 +616,7 @@
                     android:minLines="2"
                     android:maxLines="8"
                     android:paddingTop="10dp"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
             </ViewSwitcher>
         </LinearLayout>
 
