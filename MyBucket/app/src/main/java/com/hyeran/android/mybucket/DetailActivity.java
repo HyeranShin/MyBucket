@@ -241,15 +241,20 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         int getFileIndex = pref.getInt("fileIndex", 0);
         String uniquestring = pref.getString("unique", null);
         addedImage = (ImageView)findViewById(R.id.added_image);
-        if(getFileIndex == 0) {
-            addedImage.setVisibility(View.GONE);
-        } else {
-            addedImage.setVisibility(View.VISIBLE);
 
-            String myuri = EXTERNAL_STORAGE_PATH+"/"+uniquestring+getFileIndex+".jpg";
-            Uri uri = Uri.parse(myuri);
-            addedImage.setImageURI(uri);
-        }
+        //boolean hasDrawable = (addedImage.getDrawable() != null);
+
+        //if(hasDrawable) {
+            if (getFileIndex == 0) {
+                addedImage.setVisibility(View.GONE);
+            } else {
+                addedImage.setVisibility(View.VISIBLE);
+
+                String myuri = EXTERNAL_STORAGE_PATH + "/" + uniquestring + getFileIndex + ".jpg";
+                Uri uri = Uri.parse(myuri);
+                addedImage.setImageURI(uri);
+            }
+        //}
 
         //각 버킷리스트에 맞는 비디오 보여줌
         addedvideo = (VideoView) findViewById(R.id.added_video);
@@ -525,7 +530,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
                     Bitmap bm = ((BitmapDrawable)addedImage.getDrawable()).getBitmap();
 
-                    if(oldbitmap != bm) {
+                    if(bm != oldbitmap) {
                         filename = createFilename();
                         FileOutputStream fOut;
                         String strDirectory = EXTERNAL_STORAGE_PATH;
