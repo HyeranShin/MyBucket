@@ -12,6 +12,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,6 +22,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
+import android.util.Base64;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,6 +41,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 import android.widget.ViewSwitcher;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -98,6 +103,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     VideoView addedvideo;
 
     Bitmap oldbitmap;
+
+    int countforvideo = 0;
+    int countforvideo2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,52 +188,41 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         categorySpinner = findViewById(R.id.DetailCategorySpinner);
         categorySpinner.setEnabled(false);
 
-        final CircleImageView imageView = findViewById(R.id.DetailCategoryImageView);
+        final CircleImageView circleimageView = findViewById(R.id.DetailCategoryImageView);
+        final ImageView imageView = (ImageView) findViewById(R.id.DetailCategoryImageViewImage);
 
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(categorySpinner.getSelectedItemPosition() == 0) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.yellow));
                     imageView.setImageResource(R.drawable.goal);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.yellow));
-                    Drawable image = getResources().getDrawable(R.drawable.goal);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.yellow));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 1) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.orange));
                     imageView.setImageResource(R.drawable.learning);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.orange));
-                    Drawable image = getResources().getDrawable(R.drawable.learning);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.orange));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 2) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.green));
                     imageView.setImageResource(R.drawable.travel);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.green));
-                    Drawable image = getResources().getDrawable(R.drawable.travel);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.green));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 3) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.blue));
                     imageView.setImageResource(R.drawable.wishlist);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.blue));
-                    Drawable image = getResources().getDrawable(R.drawable.wishlist);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.blue));
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 4) {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.pink));
                     imageView.setImageResource(R.drawable.sharing);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.pink));
-                    Drawable image = getResources().getDrawable(R.drawable.sharing);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.pink));
                 }
                 else {
+                    circleimageView.setColorFilter(getResources().getColor(R.color.purple));
                     imageView.setImageResource(R.drawable.etc);
-                    Drawable color = new ColorDrawable(getResources().getColor(R.color.purple));
-                    Drawable image = getResources().getDrawable(R.drawable.etc);
-                    LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
-                    imageView.setImageDrawable(layerDrawable);
+                    imageView.setBackgroundColor(getResources().getColor(R.color.purple));
                 }
             }
             @Override
@@ -245,15 +242,16 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         //boolean hasDrawable = (addedImage.getDrawable() != null);
 
         //if(hasDrawable) {
-            if (getFileIndex == 0) {
-                addedImage.setVisibility(View.GONE);
-            } else {
-                addedImage.setVisibility(View.VISIBLE);
 
-                String myuri = EXTERNAL_STORAGE_PATH + "/" + uniquestring + getFileIndex + ".jpg";
-                Uri uri = Uri.parse(myuri);
-                addedImage.setImageURI(uri);
-            }
+        if (getFileIndex == 0) {
+            addedImage.setVisibility(View.GONE);
+        } else {
+            addedImage.setVisibility(View.VISIBLE);
+
+            String myuri = EXTERNAL_STORAGE_PATH + "/" + uniquestring + getFileIndex + ".jpg";
+            Uri uri = Uri.parse(myuri);
+            addedImage.setImageURI(uri);
+        }
         //}
 
         //각 버킷리스트에 맞는 비디오 보여줌
@@ -264,10 +262,23 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         } else {
             addedvideo.setVisibility(View.VISIBLE);
             MediaController mediaController = new MediaController(this);
+            mediaController.setVisibility(View.GONE);
             mediaController.setAnchorView(addedvideo);
             addedvideo.setMediaController(mediaController);
             addedvideo.setVideoPath(videouristring);
             addedvideo.seekTo(1);
+           addedvideo.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    countforvideo++;
+                    if(countforvideo % 2 == 1) {
+                        addedvideo.start();
+                    } else {
+                        addedvideo.pause();
+                    }
+                    return false;
+                }
+            });
         }
 
         //사진 추가
@@ -680,23 +691,37 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 }
 
             } else if(requestCode == REQUEST_TAKE_GALLERY_VIDEO) {
-                    final Uri videoUri = data.getData();
+                final Uri videoUri = data.getData();
 
-                    String selectedVideoPath = getPath(data.getData());
-                    if(selectedVideoPath != null) {
-                        MediaController mediaController = new MediaController(this);
-                        mediaController.setAnchorView(addedvideo);
-                        addedvideo.setMediaController(mediaController);
-                        addedvideo.setVideoPath(videoUri.toString());
-                        addedvideo.seekTo(1);
+                String selectedVideoPath = getPath(data.getData());
+                if(selectedVideoPath != null) {
+                    MediaController mediaController = new MediaController(this);
+                    mediaController.setVisibility(View.GONE);
+                    mediaController.setAnchorView(addedvideo);
+                    addedvideo.setMediaController(mediaController);
+                    addedvideo.setVideoPath(videoUri.toString());
+                    addedvideo.seekTo(1);
 
-                        SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = pref.edit();
+                      addedvideo.setOnTouchListener(new View.OnTouchListener() {
+                            @Override
+                            public boolean onTouch(View view, MotionEvent motionEvent) {
+                                countforvideo2++;
+                                if(countforvideo2 % 2 == 1) {
+                                    addedvideo.start();
+                                } else {
+                                    addedvideo.pause();
+                                }
+                                return false;
+                            }
+                        });
 
-                        editor.putString("videouristring", videoUri.toString());
-                        editor.commit();
+                    SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
 
-                    }
+                    editor.putString("videouristring", videoUri.toString());
+                    editor.commit();
+
+                }
             }
         }else {
             Toast.makeText(this, "사진을 선택하지 않았습니다.",Toast.LENGTH_LONG).show();
@@ -740,9 +765,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0])) {
                 Toast.makeText(this, "권한 설명 필요함.", Toast.LENGTH_LONG).show();

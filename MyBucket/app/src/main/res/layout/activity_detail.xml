@@ -4,679 +4,695 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#98d2d9"
-        android:text="자세히 보기"
-        android:fontFamily="@font/nanumsquare_extrabold"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:textColor="#ffffff"></TextView>
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="제목"
-            android:background="@drawable/greenborder"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/TItleSwitcher">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailTitle"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailTItleEdit"
-                android:paddingLeft="10dp"
-                android:textSize="16sp"/>
-        </ViewSwitcher>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/orangeborder"
-            android:text="내용"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ContentSwitcher">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailContent"
-                android:paddingTop="10dp"
-                android:textSize="28sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailContentEdit"
-                android:paddingTop="10dp"
-                android:inputType="textMultiLine"
-                android:lines="5"
-                android:minLines="1"
-                android:maxLines="8"
-                android:textSize="24sp"/>
-        </ViewSwitcher>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/yellowborder"
-            android:text="함께 하는 사람"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/PersonSwitcher">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailPerson"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailPersonEdit"
-                android:paddingLeft="10dp"
-                android:textSize="24sp"/>
-        </ViewSwitcher>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/mintborder"
-            android:text="장소"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/PlaceSwitcher">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailPlace"
-                android:paddingLeft="10dp"
-                android:textSize="28sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailPlaceEdit"
-                android:paddingLeft="10dp"
-                android:textSize="24sp"/>
-        </ViewSwitcher>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
+            android:layout_height="80dp"
+            android:background="#98d2d9"
+            android:text="자세히 보기"
+            android:fontFamily="@font/nanumsquare_extrabold"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:textColor="#ffffff"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기한"
-            android:background="@drawable/pinkborder"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/DetailDate"
-            android:layout_marginLeft="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_regular"
-            android:textColor="#000000"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:id="@+id/DateModifyLayout">
-
-            <DatePicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:id="@+id/DetailDatePickerStart"
-                android:theme="@style/DatepickerStyle"/>
-
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_gravity="center_vertical"
+                android:text="제목"
+                android:background="@drawable/greenborder"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:textSize="28sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-
-            <DatePicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:id="@+id/DetailDatePickerEnd"
-                android:theme="@style/DatepickerStyle"/>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/greenborder"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:text="카테고리"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:paddingRight="10dp"
-            android:id="@+id/DetailCategoryImageView"
-            android:paddingLeft="10dp"/>
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/DetailCategorySpinner"
-            android:textSize="28sp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="해시태그"
-            android:background="@drawable/orangeborder"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#"
-            android:paddingLeft="10dp"
-            android:textSize="24sp"
-            android:fontFamily="@font/nanumsquare_regular"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/HashTag1Switcher">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailHashtag1"
-                android:textSize="24sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-
-            <EditText
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/HastTag1EditText"
-                android:textSize="22sp"/>
-        </ViewSwitcher>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#"
-            android:textSize="24sp"
-            android:fontFamily="@font/nanumsquare_regular"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/HastTag2Switcher">
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailHashtag2"
-                android:textSize="24sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-
-            <EditText
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/HastTag2EditText"
-                android:textSize="22sp"/>
-        </ViewSwitcher>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#"
-            android:textSize="24sp"
-            android:fontFamily="@font/nanumsquare_regular"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/HashTag3Switcher">
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailHashtag3"
-                android:textSize="24sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-
-            <EditText
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/HashTag3EditText"
-                android:textSize="22sp"/>
-        </ViewSwitcher>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="중요도"
-            android:background="@drawable/yellowborder"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginRight="15dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/starbutton"
-            android:id="@+id/DetailStar1"
-            android:layout_marginRight="10dp"
-            android:background="@null"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/starbutton"
-            android:id="@+id/DetailStar2"
-            android:layout_marginRight="10dp"
-            android:background="@null"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/starbutton"
-            android:id="@+id/DetailStar3"
-            android:layout_marginRight="10dp"
-            android:background="@null"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/starbutton"
-            android:id="@+id/DetailStar4"
-            android:layout_marginRight="10dp"
-            android:background="@null"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/starbutton"
-            android:background="@null"
-            android:id="@+id/DetailStar5"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="사진"
-            android:background="@drawable/mintborder"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src ="@drawable/plusbtnimage"
-            android:background="@null"
-            android:id="@+id/btn_image_detail"
-            android:gravity="right"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:id="@+id/added_image" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="동영상"
-            android:background="@drawable/pinkborder"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src ="@drawable/plusbtnimage"
-            android:background="@null"
-            android:id="@+id/btn_video_detail"
-            android:gravity="right"/>
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <VideoView
-            android:layout_width="400dp"
-            android:layout_height="300dp"
-            android:id="@+id/added_video" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="소감"
-            android:background="@drawable/greenborder"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textSize="28sp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-
-        <ViewSwitcher
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/OpinionSwitcher">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailOpinion"
-                android:paddingTop="10dp"
-                android:textSize="26sp"
-                android:lineSpacingExtra="10sp"
-                android:fontFamily="@font/nanumsquare_regular"
-                android:textColor="#000000"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailOpinionEditText"
-                android:inputType="textMultiLine"
-                android:lines="5"
-                android:minLines="2"
-                android:maxLines="8"
-                android:paddingTop="10dp"
-                android:textSize="24sp"/>
-        </ViewSwitcher>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="15dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:gravity="right">
-
-        <ViewSwitcher
-            android:id="@+id/btn_switcher_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btn_modify_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="modify"
-                android:background="@drawable/bluebutton"
-                android:layout_marginRight="15dp"
-                android:textSize="30sp"
-                android:padding="5dp"
                 android:fontFamily="@font/nanumsquare_bold"
                 android:textColor="#000000"/>
-            <Button
-                android:id="@+id/btn_save_detail"
-                android:layout_width="130dp"
+
+            <ViewSwitcher
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="save"
+                android:id="@+id/TItleSwitcher">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailTitle"
+                    android:paddingLeft="10dp"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailTItleEdit"
+                    android:paddingLeft="10dp"
+                    android:textSize="16sp"/>
+            </ViewSwitcher>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/orangeborder"
+                android:text="내용"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <ViewSwitcher
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ContentSwitcher">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailContent"
+                    android:paddingTop="10dp"
+                    android:text="ddd"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailContentEdit"
+                    android:paddingTop="10dp"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:minLines="1"
+                    android:maxLines="8"
+                    android:textSize="30sp"/>
+            </ViewSwitcher>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yellowborder"
+                android:text="같이 하는 사람"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <ViewSwitcher
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/PersonSwitcher">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailPerson"
+                    android:paddingLeft="10dp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailPersonEdit"
+                    android:paddingLeft="10dp"
+                    android:textSize="30sp"/>
+            </ViewSwitcher>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mintborder"
+                android:text="장소"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <ViewSwitcher
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/PlaceSwitcher">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailPlace"
+                    android:paddingLeft="10dp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailPlaceEdit"
+                    android:paddingLeft="10dp"
+                    android:textSize="30sp"/>
+            </ViewSwitcher>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기한"
+                    android:background="@drawable/pinkborder"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailDate"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/DateModifyLayout">
+
+                <DatePicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:id="@+id/DetailDatePickerStart"
+                    android:theme="@style/DatepickerStyle"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+
+                <DatePicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:id="@+id/DetailDatePickerEnd"
+                    android:theme="@style/DatepickerStyle"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/greenborder"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="카테고리"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"
+                android:layout_marginRight="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/DetailCategoryImageView"
+                    android:src="@color/yellow"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/DetailCategoryImageViewImage" />
+
+            </RelativeLayout>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/DetailCategorySpinner"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해시태그"
+                android:background="@drawable/orangeborder"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:paddingLeft="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
+
+            <ViewSwitcher
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/HashTag1Switcher">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailHashtag1"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/HastTag1EditText"
+                    android:textSize="30sp"/>
+            </ViewSwitcher>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
+
+            <ViewSwitcher
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/HastTag2Switcher">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailHashtag2"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/HastTag2EditText"
+                    android:textSize="30sp"/>
+            </ViewSwitcher>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
+
+            <ViewSwitcher
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/HashTag3Switcher">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailHashtag3"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+
+                <EditText
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/HashTag3EditText"
+                    android:textSize="30sp"/>
+            </ViewSwitcher>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="중요도"
+                android:background="@drawable/yellowborder"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginRight="15dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/starbutton"
+                android:id="@+id/DetailStar1"
+                android:paddingRight="30dp"
+                android:background="@null"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/starbutton"
+                android:id="@+id/DetailStar2"
+                android:paddingRight="30dp"
+                android:background="@null"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/starbutton"
+                android:id="@+id/DetailStar3"
+                android:paddingRight="30dp"
+                android:background="@null"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/starbutton"
+                android:id="@+id/DetailStar4"
+                android:paddingRight="30dp"
+                android:background="@null"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/starbutton"
+                android:id="@+id/DetailStar5"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사진"
+                android:background="@drawable/mintborder"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src ="@drawable/plusbtnimage"
+                    android:background="@null"
+                    android:id="@+id/btn_image_detail"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="15dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:id="@+id/added_image"
+                android:scaleType="centerCrop"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="동영상"
+                android:background="@drawable/pinkborder"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src ="@drawable/plusbtnimage"
+                    android:background="@null"
+                    android:id="@+id/btn_video_detail"
+                    android:gravity="right"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="15dp">
+            <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:id="@+id/added_video" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="소감"
+                android:background="@drawable/greenborder"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
+
+            <ViewSwitcher
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/OpinionSwitcher">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailOpinion"
+                    android:paddingTop="10dp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/nanumsquare_regular"
+                    android:textColor="#000000"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/DetailOpinionEditText"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:minLines="2"
+                    android:maxLines="8"
+                    android:paddingTop="10dp"
+                    android:textSize="30sp"/>
+            </ViewSwitcher>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:gravity="right">
+
+            <ViewSwitcher
+                android:id="@+id/btn_switcher_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_modify_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="modify"
+                    android:background="@drawable/bluebutton"
+                    android:layout_marginRight="15dp"
+                    android:textSize="30sp"
+                    android:padding="10dp"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textColor="#000000"
+                    style="?android:attr/borderlessButtonStyle"
+                    />
+                <Button
+                    android:id="@+id/btn_save_detail"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="save"
+                    android:background="@drawable/bluebutton"
+                    android:textSize="30sp"
+                    android:padding="10dp"
+                    android:fontFamily="@font/nanumsquare_bold"
+                    android:textColor="#000000"
+                    style="?android:attr/borderlessButtonStyle"/>
+            </ViewSwitcher>
+
+            <Button
+                android:id="@+id/btn_delete_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
                 android:background="@drawable/bluebutton"
                 android:textSize="30sp"
                 android:padding="10dp"
                 android:fontFamily="@font/nanumsquare_bold"
-                android:textColor="#000000"/>
-        </ViewSwitcher>
+                android:textColor="#000000"
+                style="?android:attr/borderlessButtonStyle"/>
 
-        <Button
-            android:id="@+id/btn_delete_detail"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Delete"
-            android:background="@drawable/bluebutton"
-            android:textSize="30sp"
-            android:padding="10dp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp">
+            <Button
+                android:id="@+id/btn_change_state_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="진행중으로 변경"
+                android:background="@drawable/redbutton"
+                android:textSize="30sp"
+                android:padding="10dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"
+                style="?android:attr/borderlessButtonStyle"/>
+        </LinearLayout>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="15dp">
-        <Button
-            android:id="@+id/btn_change_state_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="진행중으로 변경"
-            android:background="@drawable/redbutton"
-            android:textSize="30sp"
-            android:padding="10dp"
-            android:fontFamily="@font/nanumsquare_bold"
-            android:textColor="#000000"/>
-    </LinearLayout>
-
-</LinearLayout>
 
 </ScrollView>

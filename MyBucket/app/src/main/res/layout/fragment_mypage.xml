@@ -223,22 +223,19 @@
                     android:id="@+id/FirstRandomImage"
                     android:layout_width="220dp"
                     android:layout_height="220dp"
-                    android:src="@drawable/noimage"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="centerCrop"/>
                 <ImageView
                     android:layout_width="220dp"
                     android:layout_height="220dp"
                     android:id="@+id/SecondRandomImage"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:src="@drawable/noimage"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="centerCrop"/>
                 <ImageView
                     android:layout_width="220dp"
                     android:layout_height="220dp"
                     android:id="@+id/ThirdRandomImage"
-                    android:src="@drawable/noimage"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="centerCrop"/>
             </TableRow>
             <TableRow
                 android:layout_marginLeft="30dp"
@@ -247,22 +244,19 @@
                     android:layout_width="220dp"
                     android:layout_height="220dp"
                     android:id="@+id/FourthRandomImage"
-                    android:src="@drawable/noimage"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="centerCrop"/>
                 <ImageView
                     android:layout_width="220dp"
                     android:layout_height="220dp"
                     android:id="@+id/FifthRandomImage"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:src="@drawable/noimage"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="centerCrop"/>
                 <ImageView
                     android:layout_width="220dp"
                     android:layout_height="220dp"
                     android:id="@+id/SixthRandomImage"
-                    android:src="@drawable/noimage"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="centerCrop"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>
