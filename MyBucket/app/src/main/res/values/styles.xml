@@ -14,6 +14,7 @@
 
     <style name="DatepickerStyle">
         <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">@font/nanumsquare_regular</item>
     </style>
 
 </resources>

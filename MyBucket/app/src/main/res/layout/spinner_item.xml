@@ -4,4 +4,6 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:textSize="30sp"
-    android:padding="5dp"/>
+    android:padding="5dp"
+    android:fontFamily="@font/nanumsquare_regular"
+    android:textColor="#000000"/>

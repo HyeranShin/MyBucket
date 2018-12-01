@@ -68,16 +68,19 @@ public class AddFragment extends Fragment{
         categorySpinner = v.findViewById(R.id.CategorySpinner);
 
         final CircleImageView imageView = (CircleImageView) v.findViewById(R.id.CategoryImageView);
+        //final ImageView imageView = (ImageView) v.findViewById(R.id.CategoryImageViewImage);
 
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(categorySpinner.getSelectedItemPosition() == 0) {
+
                     imageView.setImageResource(R.drawable.goal);
                     Drawable color = new ColorDrawable(getResources().getColor(R.color.yellow));
                     Drawable image = getResources().getDrawable(R.drawable.goal);
                     LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{color, image});
                     imageView.setImageDrawable(layerDrawable);
+
                 }
                 else if(categorySpinner.getSelectedItemPosition() == 1) {
                     imageView.setImageResource(R.drawable.learning);

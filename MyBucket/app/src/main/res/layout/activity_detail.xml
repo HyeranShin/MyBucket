@@ -36,7 +36,9 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -47,7 +49,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailTitle"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -74,7 +78,9 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -85,7 +91,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailContent"
                 android:paddingTop="10dp"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -115,7 +123,9 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -126,7 +136,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPerson"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +164,9 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -163,7 +177,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailPlace"
                 android:paddingLeft="10dp"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -195,14 +211,18 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/DetailDate"
             android:layout_marginLeft="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor="#000000"/>
 
         </LinearLayout>
 
@@ -227,7 +247,9 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:layout_gravity="center_vertical"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
 
             <DatePicker
                 android:layout_width="wrap_content"
@@ -259,7 +281,9 @@
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:text="카테고리"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="60dp"
@@ -292,14 +316,18 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
             android:paddingLeft="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="wrap_content"
@@ -310,7 +338,9 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailHashtag1"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
 
             <EditText
                 android:layout_width="150dp"
@@ -322,7 +352,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="wrap_content"
@@ -332,7 +364,9 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailHashtag2"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
 
             <EditText
                 android:layout_width="150dp"
@@ -344,7 +378,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="wrap_content"
@@ -354,7 +390,9 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailHashtag3"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
 
             <EditText
                 android:layout_width="150dp"
@@ -381,7 +419,9 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_marginRight="15dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -440,7 +480,9 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -464,8 +506,8 @@
         android:layout_height="wrap_content"
         android:gravity="center">
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:id="@+id/added_image" />
     </LinearLayout>
 
@@ -485,7 +527,9 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -529,7 +573,9 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <ViewSwitcher
             android:layout_width="match_parent"
@@ -540,7 +586,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/DetailOpinion"
                 android:paddingTop="10dp"
-                android:textSize="30sp"/>
+                android:textSize="30sp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -576,15 +624,19 @@
                 android:background="@drawable/bluebutton"
                 android:layout_marginRight="15dp"
                 android:textSize="30sp"
-                android:padding="5dp"/>
+                android:padding="5dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
             <Button
                 android:id="@+id/btn_save_detail"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="save"
                 android:background="@drawable/bluebutton"
                 android:textSize="30sp"
-                android:padding="5dp"/>
+                android:padding="10dp"
+                android:fontFamily="@font/nanumsquare_bold"
+                android:textColor="#000000"/>
         </ViewSwitcher>
 
         <Button
@@ -594,7 +646,9 @@
             android:text="Delete"
             android:background="@drawable/bluebutton"
             android:textSize="30sp"
-            android:padding="5dp"/>
+            android:padding="10dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
     </LinearLayout>
 
@@ -610,7 +664,9 @@
             android:text="진행중으로 변경"
             android:background="@drawable/redbutton"
             android:textSize="30sp"
-            android:padding="5dp" />
+            android:padding="10dp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
     </LinearLayout>
 
 </LinearLayout>

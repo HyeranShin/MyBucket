@@ -39,7 +39,9 @@
             android:layout_height="wrap_content"
             android:text="제목"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/et_title_add"
@@ -67,7 +69,9 @@
             android:layout_height="wrap_content"
             android:text="내용"
             android:paddingBottom="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/et_content_add"
@@ -99,7 +103,9 @@
             android:layout_height="wrap_content"
             android:text="함께 하는 사람"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/et_companion_add"
@@ -127,7 +133,9 @@
             android:layout_height="wrap_content"
             android:text="장소"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/et_place_add"
@@ -155,7 +163,9 @@
             android:layout_height="wrap_content"
             android:text="기한"
             android:paddingBottom="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -168,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
-                android:theme="@style/DatepickerStyle"/>
+                android:theme="@style/DatepickerStyle" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -177,7 +187,9 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:paddingTop="100dp"
-                android:paddingBottom="100dp"/>
+                android:paddingBottom="100dp"
+                android:fontFamily="@font/nanumsquare_regular"
+                android:textColor="#000000"/>
 
             <DatePicker
                 android:id="@+id/datepicker_end_add"
@@ -204,14 +216,28 @@
             android:layout_height="wrap_content"
             android:text="카테고리"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp" >
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/CategoryImageView"
-            android:paddingRight="10dp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/CategoryImageView"
+                android:src="@color/yellow"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/CategoryImageViewImage" />
+
+        </RelativeLayout>
 
         <Spinner
             android:layout_width="match_parent"
@@ -234,13 +260,17 @@
             android:layout_height="wrap_content"
             android:text="해시태그"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/et_hashtag1_add"
@@ -252,7 +282,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/et_hashtag2_add"
@@ -264,7 +296,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_regular"
+            android:textColor="#000000"/>
 
         <EditText
             android:id="@+id/et_hashtag3_add"
@@ -287,7 +321,9 @@
             android:layout_height="wrap_content"
             android:text="중요도"
             android:paddingRight="10dp"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:fontFamily="@font/nanumsquare_bold"
+            android:textColor="#000000"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -343,7 +379,8 @@
             android:text="추가하기"
             android:background="@drawable/redbutton"
             android:textSize="30sp"
-            android:padding="5dp"/>
+            android:padding="10dp"
+            android:fontFamily="@font/nanumsquare_bold"/>
 
     </LinearLayout>
 
