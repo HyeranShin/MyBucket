@@ -97,6 +97,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     int REQUEST_TAKE_GALLERY_VIDEO = 2;
     VideoView addedvideo;
 
+    Bitmap oldbitmap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -286,6 +288,20 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 bucketlistVO.deleteAllFromRealm();
                 realm.commitTransaction();
                 finish();
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+
+                //각 버킷리스트에 해당하는 사진 지우기
+                int getFileIndex = pref.getInt("fileIndex", 0);
+                String uniquestring = pref.getString("unique", null);
+                if(getFileIndex != 0) {
+
+                    String myuri = EXTERNAL_STORAGE_PATH+"/"+uniquestring+getFileIndex+".jpg";
+                    Uri uri = Uri.parse(myuri);
+                    File file = new File(uri.getPath());
+                    if(file.exists()) file.delete();
+                }
+
                 break;
 
             case R.id.btn_change_state_detail:
@@ -425,6 +441,15 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                     }
                 });
 
+                ImageView addedImage2 = (ImageView) findViewById(R.id.added_image);
+                boolean hasDrawable2 = (addedImage2.getDrawable() != null);
+                if(hasDrawable2) {
+                    oldbitmap = ((BitmapDrawable) addedImage.getDrawable()).getBitmap();
+                } else {
+                    oldbitmap = null;
+                }
+
+
                 btnSwitcher.showNext();
 
                 break;
@@ -497,32 +522,44 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 boolean hasDrawable = (addedImage.getDrawable() != null);
 
                 if(hasDrawable) {
+
                     Bitmap bm = ((BitmapDrawable)addedImage.getDrawable()).getBitmap();
-                    filename = createFilename();
-                    FileOutputStream fOut;
-                    String strDirectory = EXTERNAL_STORAGE_PATH;
 
-                    File f = new File(strDirectory, filename);
+                    if(oldbitmap != bm) {
+                        filename = createFilename();
+                        FileOutputStream fOut;
+                        String strDirectory = EXTERNAL_STORAGE_PATH;
 
-                    try {
-                        fOut = new FileOutputStream(f);
-                        bm.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
-                        fOut.flush();
-                        fOut.close();
-                        MediaStore.Images.Media.insertImage(getContentResolver(), f.getAbsolutePath(), f.getName(), f.getName());
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        File f = new File(strDirectory, filename);
+
+                        try {
+                            fOut = new FileOutputStream(f);
+                            bm.compress(Bitmap.CompressFormat.JPEG, 85, fOut);
+                            fOut.flush();
+                            fOut.close();
+                            MediaStore.Images.Media.insertImage(getContentResolver(), f.getAbsolutePath(), f.getName(), f.getName());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        String unique = tvTitle.getText().toString();
+                        SharedPreferences pref2 = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = pref2.edit();
+
+                        editor.putInt("fileIndex", fileIndex);
+                        editor.putString("unique", tvTitle.getText().toString());
+                        editor.commit();
                     }
-
-                    String unique = tvTitle.getText().toString();
-                    SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = pref.edit();
-
-                    editor.putInt("fileIndex", fileIndex);
-                    editor.putString("unique", tvTitle.getText().toString());
-                    editor.commit();
                 } else {
                     addedImage.setVisibility(View.GONE);
+                }
+
+                SharedPreferences pref3 = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+                String videouristring = pref3.getString("videouristring", null);
+                if(videouristring == null) {
+                    addedvideo.setVisibility(View.GONE);
+                } else {
+                    addedvideo.setVisibility(View.VISIBLE);
                 }
                 break;
 
