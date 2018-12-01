@@ -66,7 +66,7 @@ public class ListFragment extends Fragment {
             public void onClick(View v) {
                 ArrayList<BucketlistVO> bucketlist_run;
                 if(category_index==0) bucketlist_run = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("state", 1).findAll());
-                else bucketlist_run = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).findAll());
+                else bucketlist_run = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).equalTo("state", 1).findAll());
                 BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist_run);
                 rv_bucketlist.setAdapter(bucketlistAdapter);
             }
@@ -86,7 +86,7 @@ public class ListFragment extends Fragment {
             public void onClick(View v) {
                 ArrayList<BucketlistVO> bucketlist_waiting;
                 if(category_index==0) bucketlist_waiting = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("state", 0).findAll());
-                else bucketlist_waiting = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).equalTo("state", 2).findAll());
+                else bucketlist_waiting = new ArrayList<>(realm.where(BucketlistVO.class).equalTo("category_index", category_index).equalTo("state", 0).findAll());
                 BucketlistAdapter bucketlistAdapter = new BucketlistAdapter(bucketlist_waiting);
                 rv_bucketlist.setAdapter(bucketlistAdapter);
             }
