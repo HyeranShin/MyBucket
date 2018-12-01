@@ -12,6 +12,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,6 +22,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -98,6 +100,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     VideoView addedvideo;
 
     Bitmap oldbitmap;
+
+    int countforvideo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -253,10 +257,23 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         } else {
             addedvideo.setVisibility(View.VISIBLE);
             MediaController mediaController = new MediaController(this);
+            mediaController.setVisibility(View.GONE);
             mediaController.setAnchorView(addedvideo);
             addedvideo.setMediaController(mediaController);
             addedvideo.setVideoPath(videouristring);
             addedvideo.seekTo(1);
+            addedvideo.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    countforvideo++;
+                    if(countforvideo % 2 == 1) {
+                        addedvideo.start();
+                    } else {
+                        addedvideo.pause();
+                    }
+                    return false;
+                }
+            });
         }
 
         //사진 추가
