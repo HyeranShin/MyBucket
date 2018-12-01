@@ -243,15 +243,15 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         //if(hasDrawable) {
 
-            if (getFileIndex == 0) {
-                addedImage.setVisibility(View.GONE);
-            } else {
-                addedImage.setVisibility(View.VISIBLE);
+        if (getFileIndex == 0) {
+            addedImage.setVisibility(View.GONE);
+        } else {
+            addedImage.setVisibility(View.VISIBLE);
 
-                String myuri = EXTERNAL_STORAGE_PATH + "/" + uniquestring + getFileIndex + ".jpg";
-                Uri uri = Uri.parse(myuri);
-                addedImage.setImageURI(uri);
-            }
+            String myuri = EXTERNAL_STORAGE_PATH + "/" + uniquestring + getFileIndex + ".jpg";
+            Uri uri = Uri.parse(myuri);
+            addedImage.setImageURI(uri);
+        }
         //}
 
         //각 버킷리스트에 맞는 비디오 보여줌
@@ -267,7 +267,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             addedvideo.setMediaController(mediaController);
             addedvideo.setVideoPath(videouristring);
             addedvideo.seekTo(1);
-            addedvideo.setOnTouchListener(new View.OnTouchListener() {
+           addedvideo.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     countforvideo++;
@@ -691,18 +691,18 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 }
 
             } else if(requestCode == REQUEST_TAKE_GALLERY_VIDEO) {
-                    final Uri videoUri = data.getData();
+                final Uri videoUri = data.getData();
 
-                    String selectedVideoPath = getPath(data.getData());
-                    if(selectedVideoPath != null) {
-                        MediaController mediaController = new MediaController(this);
-                        mediaController.setVisibility(View.GONE);
-                        mediaController.setAnchorView(addedvideo);
-                        addedvideo.setMediaController(mediaController);
-                        addedvideo.setVideoPath(videoUri.toString());
-                        addedvideo.seekTo(1);
+                String selectedVideoPath = getPath(data.getData());
+                if(selectedVideoPath != null) {
+                    MediaController mediaController = new MediaController(this);
+                    mediaController.setVisibility(View.GONE);
+                    mediaController.setAnchorView(addedvideo);
+                    addedvideo.setMediaController(mediaController);
+                    addedvideo.setVideoPath(videoUri.toString());
+                    addedvideo.seekTo(1);
 
-                        addedvideo.setOnTouchListener(new View.OnTouchListener() {
+                      addedvideo.setOnTouchListener(new View.OnTouchListener() {
                             @Override
                             public boolean onTouch(View view, MotionEvent motionEvent) {
                                 countforvideo2++;
@@ -715,13 +715,13 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                             }
                         });
 
-                        SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = pref.edit();
+                    SharedPreferences pref = getApplicationContext().getSharedPreferences(unique, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
 
-                        editor.putString("videouristring", videoUri.toString());
-                        editor.commit();
+                    editor.putString("videouristring", videoUri.toString());
+                    editor.commit();
 
-                    }
+                }
             }
         }else {
             Toast.makeText(this, "사진을 선택하지 않았습니다.",Toast.LENGTH_LONG).show();
@@ -765,9 +765,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0])) {
                 Toast.makeText(this, "권한 설명 필요함.", Toast.LENGTH_LONG).show();
@@ -789,5 +789,4 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             }
         }
     }
-
 }
